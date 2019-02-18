@@ -1,5 +1,11 @@
 \documentclass[]{report}
 
+\usepackage[
+backend=biber,
+style=numeric,
+sorting=none
+]{biblatex}
+\addbibresource{references.bib}
 
 % Title Page
 \title{Robinson Observatory Telescope Refresh}
@@ -11,5 +17,10 @@
 
 \begin{abstract}
 \end{abstract}
+
+\section*{Hello world!}
+Do what you say you will do.\cite{heinrich}
+
+\printbibliography
 
 \end{document}
