@@ -152,7 +152,13 @@ React's structure and idioms are a good contender for implementation in our proj
 
 \subsubsection*{Vue}
 
-\cite{vuelaunch}
+Vue was released by Evan You in 2014 as an open-source JavaScript frontend framework.\cite{vuelaunch} It received immediate attention from various web communities and it has developed significantly since its launch. It is being actively developed and receives regular bug-fixes and stability patches. Despite its relative immaturity, the framework has seen wide adoption due to its progressive design philosophy.
+
+Vue is compartmentalized across several different libraries. The core library "is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects." \cite{vueguide} However, Vue optionally has the capability to "[power] sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries."\cite{vueguide} Vue's flexibility enables it to integrate into many differing use-cases.
+
+Like the other libraries examined, Vue also supports component composition via Vue's component system. This abstraction system is "an abstraction that allows us to build large-scale applications composed of small, self-contained, and often reusable components."\cite{vueguide} They can be nested and pass data from parent to child. Data passing is done via props and a specialized binding syntax.
+
+Utilizing Vue for our project would mean depending on a relatively immature library. However, its lightweight molecularity will enable us to only utilize the components that we need for our project. By doing so, we will reduce both the complexity of our resultant application and the bandwidth requirements associated with loading the libraries. Likewise, the single-page application nature of Vue will also reduce the amount of data being utilized.
 
 \printbibliography[title={References}]
 
