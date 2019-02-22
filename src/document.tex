@@ -9,15 +9,12 @@ sorting=none
 ]{biblatex}
 \addbibresource{references.bib}
 
-
-
 % Title Page
 \title{Robinson Observatory Telescope Refresh}
 \author{Bradley Glaser, Derek McCrae, Bryan Ocbina, Justin Rudisal}
 
 
 \begin{document}
-
 \maketitle
 
 \begin{abstract}
@@ -146,20 +143,22 @@ React was a Framework developed by Jordan Walke at Facebook. It was originally a
 
 React is a single-page web application framework. It enables the developer to dynamically update the contents of a page as data changes or uses interact. Since the web browser doesn't have to load completely new pages with each action, the resultant web application is very responsive since it only downloads information as it is needed without the need to potentially re-download components repeated on each page.
 
-Components are React's way of splitting your application into reusable pieces. Likewise, Components determine how one structures the data on the user's end. React components "[take] in parameters...and [they return] a hierarchy of views to display."\cite{reacttutorial} The data is tightly coupled to the visual model.
-
-React's structure and idioms are a good contender for implementation in our project. The single-page nature of React makes it ideal for places with low-bandwidth connections such as observatories. Likewise, the tight coupling of data and view provides a good starting point for structuring our code. Finally, React is widely used in the industry and so it would be an advantage for our team to gain experience using it.
-
 \subsubsection*{Vue}
 
-Vue was released by Evan You in 2014 as an open-source JavaScript frontend framework.\cite{vuelaunch} It received immediate attention from various web communities and it has developed significantly since its launch. It is being actively developed and receives regular bug-fixes and stability patches. Despite its relative immaturity, the framework has seen wide adoption due to its progressive design philosophy.
+\section*{Telescope Software}
 
-Vue is compartmentalized across several different libraries. The core library "is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects." \cite{vueguide} However, Vue optionally has the capability to "[power] sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries."\cite{vueguide} Vue's flexibility enables it to integrate into many differing use-cases.
+To tell the telescope where to point in the sky, some software needs to input commands to the telescope. Currently, the observatory uses SkyX Professional as it is the software provided with the Paramount telescope they purchased. It did work well for a while in the observatory but can only be used with the purchase of a black control box made by Bisque. In the hopes of ease and simplicity with the creation of our sub-scale model, we will use an open-source software to control the telescope. This will cut out the need for black box setup of the current observatory telescope that is creating control problems. There are multiple options for the telescope software that will be reviewed in the following paragraphs. The software will need to talk to an Arduino board.
 
-Like the other libraries examined, Vue also supports component composition via Vue's component system. This abstraction system is "an abstraction that allows us to build large-scale applications composed of small, self-contained, and often reusable components."\cite{vueguide} They can be nested and pass data from parent to child. Data passing is done via props and a specialized binding syntax.
+\subsection*{Stellarium}
 
-Utilizing Vue for our project would mean depending on a relatively immature library. However, its lightweight molecularity will enable us to only utilize the components that we need for our project. By doing so, we will reduce both the complexity of our resultant application and the bandwidth requirements associated with loading the libraries. Likewise, the single-page application nature of Vue will also reduce the amount of data being utilized.
+Stellarium is the first open source program we came across. Stellarium was a project started back in 2001 by Fabien Chéreau. The software was first released in July of 2014 and had its most recent update in December of 2018. Each of it's release can be found on their github repository with a changelog. The software can run on Linux, Windows, or Mac so no compatibility issues will arise.
 
-\printbibliography[title={References}]
+Stellarium at its core is used to show a 3d model of a realistic sky. You tell the software what you want to view and it creates a visual 3d output of the sky at that location. It is not a current view of that location. For tis project though, we need to push beyond this core use and use their telescope control feature that was implemented in version 0.10.5. The software allows you to control a GOTO telescope from the Stellarium UI. This feature sends movement commands to the telescope and receives the current position of the telescope. The feature is very simplistic but achieves the control we need for the project. Supervision will need to happen during telescope control though as movemenet will not stop even in the event of mount collisions or other safety events. It is also important tot note the telescope can end up being pointed at the Sun, which is dangerous to view at without the proper filters on a camera that is mounted on our model.
+
+\subsubsection*{Arduino}
+
+With Stellarium, the telescope control feature works in two ways: direct or indirect connection. Direct connection will send slew commands and positional coordinates of the model through LX200 protocol. To help in this communication, Arduino would be the middle man. Just like the current setup in the observatory, the Arduino board would work like the black box for the observatory. The Arduino receives two strings: one relates to right ascension and the other relates to declination. Our Ardiuno needs to take these strings and be able to translate them into operational code for the motors.
+
+\printbibliography
 
 \end{document}
