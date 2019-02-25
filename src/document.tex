@@ -358,6 +358,72 @@ TypeScript is a very approachable language for both beginners and JavaScript vet
 
 TypeScript comes with many tools that aid in the development process. Developing code is hard and it is made harder when tools are unable to assist in the development process. Plain JavaScript's dynamically typed nature limits the functionality of external development tools. However, TypeScript does not suffer the same issues because of its optional static typing. Likewise, TypeScript's tools are able to utilize type inference to bridge the gap between dynamic objects and its statically typed ones.\cite{typescripthomepage} Tools are able to utilize this type inference to display additional information and catch potential run-time bugs before they become an issue.
 
+\section*{Database Research}
+
+\subsection*{SQL vs NoSQL}
+
+\subsubsection*{SQL}
+
+Structured Query Language (SQL) is the most popular language for managing Relational Database Management System (RDBMS).  SQL was initially developed by IBM researchers Raymond Boyce and Donald Chamberlin in the 1970s.  SQL includes data query, data manipulation (insert, update, and delete), data definition, and data access control.  SQL is known for its readability and ease of learning.  MySQL and Microsoft SQL Server are two widely used database systems each being used for LAMP stacks and WISA stacks respectively.  Just recently, both options have become available on Windows, Linux, and MAC OS X.  Due to its age and availability, SQL is heavily documented in its functionality.
+
+\subsubsection*{MySQL}
+
+MySQL is an open source Relational Database Management System (RDBMS) that uses Structured Query Language (SQL).  MySQL is the database component of the LAMP (Linux, Apache, MySQL, PHP) web application software stack.  MySQL is used by popular companies such as Netflix, NASA, Tesla, and Youtube.  MySQL was created by a Swedish company, MySQL AB, by David Axmark and Michael Widenius in 1995 and is currently owned by Oracle.  Similar to SQL itself due to the age of MySQL, its complexity and problems have been encountered and documented so solutions are readily available.  The popularity of MySQL creates a loop of being popular due to its popularity.  Developers are readily available and the cheap hosting environments makes MySQL very accessible.  It is primarily written in C and C++.  While still open source under Oracle, some modules are proprietary and close-sourced.  
+
+\subsubsection*{Microsoft SQL Server}
+
+SQL server is owned by Microsoft and has frequent releases.  The licenses required for running SQL server makes it more expensive than MySQL which is free and open-source outside of the enterprise level.  SQL server is mainly used in Microsoft’s WISA (Windows, IIS, SQL Server, ASP.NET) stacks where all components were designed by Microsoft and built to function together.  The added benefit of WISA stacks is that customer support can be handled by Microsoft across all levels.  SQL server is very to install and has transparent data compression and encryption which also provides better security features. 
+
+\subsubsection*{NoSQL}
+
+A database technology that does not involve the structured query language and rely on object-oriented APIs instead.  NoSQL contains various database types mainly including document databases, graph stores, key-value stores, and wide-column stores.  A document database will pair a key with a complex data structure known as a document.  Graph stores store data based on networks of data e.g. social connections.  Key-value stores store every single item as an attribute name along with its value.  Wide-column stores make use of columns of data, rather than rows.  NoSQL provides a more scalable platform and improved performance.  The various structures of data storage and management alongside cloud development were key features of NoSQL that SQL did not anticipate.  
+NoSQL provide dynamic schemas rather than the strict requirements of relational databases.  Adding additional information requirements in relational databases require downtime in shifting all of the previous information to the new tables.  NoSQL and lack of table structure provides flexibility that is unseen in relational databases.  When not all specifications are known or explored in advance, NoSQL is able to add additional data requirements more easily.  NoSQL is developed with cloud storage in mind and is able to easily make use of cloud data storage whereas relational database systems do not support this natively.  
+NoSQL Databases are a newer technology from the late 2000s that were developed specifically to combat the limitations of SQL databases, mainly scalability, multi-structured data, geo-distribution, and agile development.  NoSQL databases are widely more dynamic and flexible than SQL databases and remain open source.
+
+\subsection*{SQL Alternatives}
+
+\subsubsection*{MariaDB}
+
+MariaDB was created by MySQL founder Michael Widenius when Oracle obtained MySQL in 2010 and stays true to its open source, community driven development.  MariaDB is a direct alternative to MySQL and is a fork of MySQL.  The functionality is similar enough that MariaDB functions as a database as a drop-in replacement for MySQL.  The database structure and indexes are the same as MySQL.  MariaDB is used by companies such as Google, Wikipedia, RedHat, etc.  The main advantages of MariaDB despite being a fork is its more efficient performance and newer features.
+
+\subsubsection*{PostgreSQL}
+
+PostgreSQL is another open source SQL database but it is object-relational.  Object-relational means that there is support for user-defined objects and their behaviors e.g. data types, functions, operators, domains, and indexes.  Alongside these objects, PostgreSQL has a wide support for data types and structures.  PostgreSQL can store much more data in their rows without negatively impacted performance.  MySQL and MariaDB are known for running into file size limitations and PostgreSQL will avoid those problems.  The highly customizable databases and wide support for programming languages are some key features of PostgreSQL.  PostgreSQL is not as popular as other options but it has many unique features.
+
+\subsubsection*{mongoDB}
+
+MongoDB is the database component of the MEAN (mongoDB, Express, Angular, Node.js) and is a NoSQL database.  MongoDB is based in JavaScript alongside the entire MEAN web-based application stack.  MongoDB was developed in 2007 and introduced to the market in 2009 as an open source database that was maintained and supported by MongoDB Inc.  MongoDB utilizes JSON based document oriented queries that function much more quickly than SQL queries.  NoSQL databases are a more modern approach to databases and mongoDB is in the forefront.  In terms of modernity and future web stack development, mongoDB seems like the most flexible choice for databases.  
+
+\section*{Back-end Research}
+
+The main component for communication between the front-end user experience and the database itself.  The server-side functionality of retrieving and storing data as requested by users into the database and other various API function calls is the job of the back-end.  Mainly consists of the servers, databases, APIs, and operating systems.      
+
+\subsection*{PHP}
+
+PHP began development in 1994 by Rasmus Lerdorf.   PHP is a general-purpose programming language designed for web development and can be easily embedded into HTML.  The PHP code is executed server side which will send the corresponding html to the client.  From personal experience it is somewhat intuitive and relatively streamlined and template based.  Within the PHP code, a connection to the database will be made, a SQL query will be processed from the client and the corresponding data will be sent or retrieved from the SQL database.  The connection will then be closed until the next client interaction happens.   
+
+\subsection*{Node.js}
+
+Node.js is an open source server environment that executes JavaScript on the server and works in conjunction with express.  Node.js differs from PHP as it makes use of asynchronous programming.  Asynchronous programming makes Node.js much more efficient as it is able to send requests and immediately prepare other requests rather than waiting after every single request.  As soon as a request is ready, the contents will be sent to the client rather than waiting for the request to be fulfilled.  The MEAN stack of Node.js will make use of JavaScript across the stack which will provide easier communication across the levels of the stack between developers.  This aspect will be particularly useful in the scope of this project as there are very few of us and communication and ease of troubleshooting is extremely important.
+
+Node.js and the MEAN stack in general is not as mature as technologies as PHP and the LAMP stack but their more modern approach to web development is very promising and the growth in popularity in the last decade is exciting.  Asynchronous calls are more useful in real time environments such as chat systems while not too critical for websites or images but the benefits are there.  
+
+\subsection*{ASP.NET}
+
+ASP.NET is a combination of Active Server Pages (ASP) and .Net Framework.  ASP is Microsoft’s scripting engine for dynamic web pages and .NET is the software that enables use of ASP.  ASP.NET is part of the WISA stack.  The closed source aspect of being a Microsoft product can be a drawback.  WISA stacks and the prices associated seem to be mainly targeting enterprise level websites. 
+
+\subsection*{Ruby on Rails}
+
+Ruby on Rails is a server-side web application framework written in Ruby under MIT license.  Rails provides a model-view-controller (MVC) framework and structures for a database, web service, and web pages.  The frameworks provide a platform and templates for developing websites.  The process with rails seems to simplify the coding process similar to design patterns by providing efficient and clean solutions to common issues or specifications in web application development.  Ruby on Rails sounds like a user-friendly option that could be worth exploring.
+ 
+\section*{Web Hosting}
+
+The current website for the Robinson Observatory is currently maintained by the astronomer team and is apart of the UCF website domain.  This will give us flexibility in what features will be added.  While working on the future additions to the website, we will host the website on our own service.  Image hosting and associated data will be a large component of the website.  Data storage will be a requirement to keep in mind.  The possibility of machine learning being a functionality will increase storage space dramatically.
+
+\subsection*{Amazon Web Services (AWS) vs DigitalOcean vs Google Cloud}
+
+The big three website hosting services are AWS, DigitalOcean, and Google Cloud.  In terms of cost and user-friendly experience in setting up a service, DigitalOcean and Google Cloud seem much more simpler.  AWS offers a wide variety of options and varying levels security or requirements which can make narrowing down your specific needs confusing.  DigitalOcean seems to be the most affordable choice alongside with the medium-scale demonstration size of the website for this project will be.
+
 \section*{Model Telescope Control}
 
 \subsection*{Model Telescope vs Observatory Control}
