@@ -196,6 +196,15 @@ Through the use of these charts, the software allows you to control a telescope 
 
 SkyChart adds more options for how to send data between the software and our telescope. These protocol options would be more helpful though with the observatory telescope. The sub-scale model will be very simplistic in features. We do not need to worry about camera focus or dome control like the observatory does. These features would find use with the INDI and ASCOM protocols as you can send more information between telescope and software. As we only need slew commands and position strings, the LX200 protocol is still most useful for the model.
 
+\newpage %Page break
+
+\begin{figure}
+	\section*{LX200 Commands}
+	\includegraphics[height=\textheight,width=\linewidth]{LX200commands}
+\end{figure}
+
+\clearpage
+
 \subsection*{Challenges}
 
 The first challenge, and in my opinion biggest, will be relating software commands to telescope movements. As a computer scientist, we mostly live our lives in a virtual realm. However, this project is breaking that barrier. Our software development will have a direct impact on the movement of the model telescope. We need to find a turn the strings of code into proper movements based on our specific functionality of the telescope. With our telescope being designed from the ground up, the gear ratios and motor torque will be unique. So, the Arduino board will not be able to directly execute the strings given by the software we choose. We will need calculations for moment of inertia, friction, and the impact of gravity on our model. Luckily, I have taken some mechanical engineering courses that dealt with these topics allowing me to have confidence tackling these issues.
