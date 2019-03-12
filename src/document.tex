@@ -2,6 +2,9 @@
 
 \usepackage[margin=1.0in]{geometry}
 
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+
 \usepackage[
 backend=biber,
 style=numeric,
@@ -106,6 +109,19 @@ The organization that runs the observatory, Florida Space Institute, is a resear
 
 The data gathered by the telescope will need to be accessible by future researchers. Likewise, it might be possible to allow the general public to have access to the data. Either way, the data archive will require a frontend to enable browsing, searching, uploading, downloading, and categorizing the data. The frontend will be a login secured website in order to maximize portability and accessibility. By foregoing a native application, we ensure that the data will be accessible from anywhere with an internet connection. Likewise, we enable the researchers to utilize whatever person computers are most convenient. i.e. laptops, a tablet, an iPad, a cell phone, etc.
 
+\begin{figure}[h]
+	\centering
+	\caption{Archive Frontend Use-Case}
+	\includegraphics[width=0.75\linewidth]{frontend_use_case}
+	\label{fig:archiveusecase}
+\end{figure}
+
+The archive will be split into two separate components. Access to the private portion of the website functionality will require logging-in so that the user can be authenticated. Likewise, different users may have access to different sources of private data depending on the security needs of the observatory.
+
+Unauthenticated users will be able to browse the data published as public. We enable said users to perform basic browsing and searching as one would expect. Likewise, we will enable users to add tags and favorites to data. Said information will be stored in the user's cookies until they decide to create an account. Once an account is created, the data stored in their cookies can be uploaded to ensure that the data is persistent across browser sessions.
+
+Authenticated users with the appropriate account permissions will have access to further functionality beyond the basics. They will be able to modify the database directly by uploaded new data and modifying the metadata associated with data that exists withing the archive. Any modifications made by an authenticated user will only apply to data within their permission group. Data may be shared across several permission groups and thus users will only see the modifications made associated with their group. In order to facilitate said functionality, we will need to keep modifications separate from the source data in our backend.
+
 \subsection*{Frontend Frameworks}
 
 There are many modern frontend frameworks which enable developers to quickly create highly interactive websites efficiently. Our frontend solution will need to be data efficient to reduce the strain on potentially poor connections. It is possible that potential users will have a poor internet connection while attempting to access the data. (As is the case in some observatories.) Thus it is necessary to choose the appropriate framework solution which enables rapid development while maintaining a focus on efficiency.
@@ -194,7 +210,7 @@ Dart represents the unique opportunity to be at the forefront of Google's vision
 
 \subsubsection*{TypeScript}
 
-TypeScript is an open-source programming language released and developed by Microsoft. TypeScript is a syntatic superset of JavaScript that adds optional typing to the language.\cite{typescripthomepage} It is well maintained and under active development.
+TypeScript is an open-source programming language released and developed by Microsoft. TypeScript is a syntactic superset of JavaScript that adds optional typing to the language.\cite{typescripthomepage} It is well maintained and under active development.
 
 TypeScript is a very approachable language for both beginners and JavaScript veterans. Its syntax is very familiar to developers who have worked on frontend applications. Thus, it will be very easy for team members to acclimate to the language and become productive quickly. Likewise, it will be advantageous to be able to show code samples to individuals already familiar with JavaScript with minimal friction. Communicating code examples to external individuals is a vital part of presenting one's work. It is important that the language does not increase the cognitive load of the listeners when trying to present new information to them.
 
