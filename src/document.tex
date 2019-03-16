@@ -240,7 +240,7 @@ Dynamically typed languages are a liability to the stability of our eventual pro
 
 Typed languages eliminate an entire class of bugs and reduces the frequency of run-time crashes. Research performed by Zhang Gao \textit{et al.} at The University Collage London and Microsoft demonstrated that the use of TypeScript enables developers to reduce the number of bugs by approximately 15\%.\cite{typescriptpaper} They examined the commit history of several open source JavaScript applications. The identified the commits that corresponded to the introduction of a bug. Then, they would leverage TypeScript by adding type annotations to the code in question. If the newly annotated code prevented the bug at compile-time, then they determined that TypeScript would have prevented said bug from ever causing an issue in the first place. Of the 400 public bugs that they examined, TypeScript was able to prevent 58 bugs from occurring due to type checks at compile-time. Their conclusions are really and understatement on the impact of strict typing. They only examined public bugs and thus they did not account for bugs that were caught by developers manually during the development process. Likewise, strict typing also impacts the quality of the tools surrounding a language. Simple tasks in code navigation suchas "go to definition" and "see usages" are substantially improved by strict typing. Similarly, strict typing can reduce developer confusion since the arguments to a function or method include additional information beyond simply their name. i.e. the types associated with the arguments passed to the method in question. The results of the Zhang Gao paper was a huge motivating factor for our team. We are not expert frontend developers and thus we benefit from the additional power that TypeScript brings during the tooling process.
 
-\subsection*{Extended React Research}
+\subsection*{Extended Frontend Research}
 
 Before we can begin planning the structure of our frontend code, we must first take a closer look at the way that React applications are built. This section examines many of React's idioms, components, props, application state, application life-cycle, and fillable web forms. Understanding how each of these elements make-up a React application will give our team the groundwork to begin creating our own React application for use in the archive system. It is vital that our team has a good understand of how a React application functions before we begin implementation due to our constrained timeline. Likewise, utilizing React idioms appropriately will ensure that future senior design students who might maintain or extend our code will be able to have an appropriate starting point for their project. The last thing that our team wants is to deliver a project that will just have to be scrapped and rewritten if/when any future maintenance is needed.
 
@@ -277,6 +277,19 @@ Frontend applications are asynchronous by nature and React is designed to accomm
 Data in a React application always flows down. Parent components are able to update the state of their children. However, the reverse is not true. This unidirectional flow invariant also contributes to the lazy update technique discussed above. By ensuring that the data only flows in one direction, React can eliminate the need to update entire branches of the DOM.
 
 React components are unable to tell if their children are stateful or stateless. i.e. class components or functional components. This separation of concerns contributes to the modularity of React components. Data is passed from parent to child and since data modifications are only performed via prop updates components can be refactored without great difficulty.
+
+\subsubsection*{Asynchronous Data Fetching}
+
+In order to build applications that feel responsive, asynchronous HTTP requests are a necessity. Executing requests on the rendering thread is a surefire way to make one's application feel sluggish given the nature of computer networking. Users are accustomed to instant feedback for their actions. As previously mentioned, React is quite happy to accept updates from asynchronous sources. However, like the other technologies examined, industry has moved away from utilizing plain JavaScript to handle HTTP requests. It is perfectly viable to perform said requests in plain JavaScript but there a plenty of libraries which exist to simplify the process and reduce the chance for errors. We briefly examined three methods of executing HTTP requests: plain JavaScript, the Request library, and the Axios library.
+
+Utilizing plain JavaScript for HTTP requests cannot be overlooked. Our project will need to make simple HTTP REST requests. JavaScript is perfectly capable of handling said requests without any additional library requirements. Given that our project might need to maintained by other individuals or students in years to come, it would behoove us to attempt to minimize the number of libraries that must be learned before they can get started making modifications. Figure \ref{fig:javascripthttprequest} shows a simple HTTP request snippet provided by the Mozilla developer documents.\cite{mozillahttprequest}
+
+\begin{figure}[h]
+	\centering
+	\caption{Plain JavaScript HTTP Request}
+	\includegraphics[scale=0.5]{javascript_http_request}
+	\label{fig:javascripthttprequest}
+\end{figure}
 
 \printbibliography[title={References}]
 
