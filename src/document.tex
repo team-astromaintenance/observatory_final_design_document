@@ -282,13 +282,24 @@ React components are unable to tell if their children are stateful or stateless.
 
 In order to build applications that feel responsive, asynchronous HTTP requests are a necessity. Executing requests on the rendering thread is a surefire way to make one's application feel sluggish given the nature of computer networking. Users are accustomed to instant feedback for their actions. As previously mentioned, React is quite happy to accept updates from asynchronous sources. However, like the other technologies examined, industry has moved away from utilizing plain JavaScript to handle HTTP requests. It is perfectly viable to perform said requests in plain JavaScript but there a plenty of libraries which exist to simplify the process and reduce the chance for errors. We briefly examined three methods of executing HTTP requests: plain JavaScript, the Request library, and the Axios library.
 
-Utilizing plain JavaScript for HTTP requests cannot be overlooked. Our project will need to make simple HTTP REST requests. JavaScript is perfectly capable of handling said requests without any additional library requirements. Given that our project might need to maintained by other individuals or students in years to come, it would behoove us to attempt to minimize the number of libraries that must be learned before they can get started making modifications. Figure \ref{fig:javascripthttprequest} shows a simple HTTP request snippet provided by the Mozilla developer documents.\cite{mozillahttprequest}
+Utilizing plain JavaScript for HTTP requests cannot be overlooked. Our project will need to make simple HTTP REST requests. JavaScript is perfectly capable of handling said requests without any additional library requirements. Given that our project might need to maintained by other individuals or students in years to come, it would behoove us to attempt to minimize the number of libraries that must be learned before they can get started making modifications. Figure \ref{fig:javascripthttprequest} shows a simple HTTP request snippet provided by the Mozilla developer documents.\cite{mozillahttprequest} The aforementioned snippet shows that JavaScript is perfectly capable of making asynchronous requests in an idiomatic way. The developer just needs to declare anonymous functions to handle the callbacks which will be fired when the request completes.
 
 \begin{figure}[h]
 	\centering
 	\caption{Plain JavaScript HTTP Request}
 	\includegraphics[scale=0.5]{javascript_http_request}
 	\label{fig:javascripthttprequest}
+\end{figure}
+
+Request is a popular JavaScript library for handling HTTP requests in a simplified manner. It condenses the verbose syntax required for plain JavaScript HTTP requests into a specialized set of functions with sane defaults. Some such convenient helper methods are: \texttt{request.get()}, \texttt{request.post()}, \texttt{request.put()}, etc. Since HTTP request code is repeated in several places, it is beneficial for a developer to utilize a library with a clean and friendly syntax to reduce the chance that a mistake will be made when constructing the HTTP request code.
+
+Axios is another well known JavaScript HTTP client library that seeks to simplify the process of making HTTP requests. However, unlike Request, Axios puts a focus on utilizing the promise API to manage its connection responses. Thus it requires a modern version of JavaScript (ES6+) in order to function. However, despite this limitation, the resultant code one writes when using Axios ends up being very clean and understandable. Figure \ref{fig:axiosexample} shows an example of utilizing the Axios API to make a basic GET request corresponding to a specific userID.\cite{axiosgithub} The example code provided shows the power of chaining several Axios methods together. The example code is very readable and mirrors the structure of natural language instructions. Structuring code in this way helps to reduce the cognitive load on the developer. This leads to better code and faster code reviews since it is easier to explain to other developers what each method call accomplishes.
+
+\begin{figure}[h]
+	\centering
+	\caption{An Example of the Axios Library Usage}
+	\includegraphics[scale=0.5]{axios_example}
+	\label{fig:axiosexample}
 \end{figure}
 
 \printbibliography[title={References}]
