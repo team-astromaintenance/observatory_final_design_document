@@ -477,6 +477,23 @@ Figure \ref{fig:frontendmockup} shows a mock-up of the archive's homepage. It wi
 	\label{fig:frontendmockup}
 \end{figure}
 
+\subsubsection*{Login and Registration}
+
+One of our stated goals for the archive is open access to members of the public and potential external researchers. However, there is the possibility that access to some data will need to be restricted to outside individuals. Thus, we are forced to implement authentication as part of our design.
+
+Figure \ref{fig:loginmockup} shows our idea for a login prompt. It is minimalistic by design. A simple prompt for username and password is all that is required for our use-case. Not pictured here is a similar registration window that would add a confirm password prompt and an organization selection box. The group access selection is needed because individuals might belong to organizations that have individual access policies. Likewise, the data associated with each organization would be potentially restricted to members of that individual organization.
+
+\begin{figure}[h]
+	\centering
+	\caption{Login Mock-up}
+	\includegraphics[width=\linewidth]{login}
+	\label{fig:loginmockup}
+\end{figure}
+
+Membership to an organization needs manual approval by an administrator account that belongs to said organization.
+
+% TODO add picture for admin queue
+
 \subsubsection*{The Archive's Splash Screen}
 
 Displaying data as the first thing that one sees may be initially jarring to someone unaccustomed to the website. Thus, it may be prudent to display a splash screen message when one visits the website for the first time. This would serve to ease the user into the system and help to prevent them from being overwhelmed with options. Such a splash screen would then be disabled upon subsequent visits to the archive. Figure \ref{fig:splashscreenmockup} shows our initial designs for a splash screen that would be displayed to first time visitors.
