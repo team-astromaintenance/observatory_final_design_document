@@ -568,7 +568,7 @@ PostgreSQL is another open source SQL database but it is object-relational.  Obj
 
 MongoDB is the database component of the MEAN (mongoDB, Express, Angular, Node.js) and is a NoSQL database.  MongoDB is based in JavaScript alongside the entire MEAN web-based application stack.  MongoDB was developed in 2007 and introduced to the market in 2009 as an open source database that was maintained and supported by MongoDB Inc.  MongoDB utilizes JSON based document oriented queries that function much more quickly than SQL queries.  NoSQL databases are a more modern approach to databases and mongoDB is in the forefront.  In terms of modernity and future web stack development, mongoDB seems like the most flexible choice for databases.  
 
-\section*{Back-end Research}
+\section*{Backend Research}
 
 The main component for communication between the front-end user experience and the database itself.  The server-side functionality of retrieving and storing data as requested by users into the database and other various API function calls is the job of the back-end.  Mainly consists of the servers, databases, APIs, and operating systems.      
 
@@ -598,6 +598,7 @@ The current website for the Robinson Observatory is currently maintained by the 
 
 The big three website hosting services are AWS, DigitalOcean, and Google Cloud.  In terms of cost and user-friendly experience in setting up a service, DigitalOcean and Google Cloud seem much more simpler.  AWS offers a wide variety of options and varying levels security or requirements which can make narrowing down your specific needs confusing.  DigitalOcean seems to be the most affordable choice alongside with the medium-scale demonstration size of the website for this project will be.  All these options offer special deals and credits for students and should all be affordable in terms of support for the next year until our website functionalities are integrated to the robinson observatory website.
 
+
 \subsection*{Amazon Web Services (AWS)}
 
 Amazon Web Services is an extremely flexible platform with a wide variety of options for all web hosting needs.  The idea of scalability and flexibility are key aspects that AWS utilizes to meet the needs of their customers as their platforms and storage needs grow.  AWS also offers the largest amount of credits (\$185.00) specifically for student usage through the AWS Educate program.  The AWS Educate program is designed to be an academic gateway for future web services professionals.  Their goal is to raise awareness of cloud services and their capabilities.
@@ -607,9 +608,44 @@ The following steps of connecting your database with your chosen web platform an
 \section*{Database}
 
 The database for the website will be using postgreSQL.  The main benefits of postgreSQL is that it is an open-source object-oriented relational database that can also feature noSQL functionalities.  PostgreSQL is also known for its dependable data storage and security.  The databases main feature will be the images of the telescope.  Filepaths to images will be stored in a table and be associated with corresponding metadata.  The metadata table will make use of postgreSQL’s functionality to create self-made array types to store the metadata of each subsection together.  Users will be able to create accounts with some personal information associated and be able to create tags for photos and favorite them.  There will also be a public and administrator level to account types that will allow the general public to view and interact with the images whereas an administrator account would be able to edit metadata or add and delete images from the database.
-Below is an entity relationship diagram for our database which shows the associations between the tables and the data held within each table.  The tables seek to contain each of the main components of the database to their own tables while also being able to easily create queries to intuitively search the database and make changes as needed.  
+Below is an entity relationship diagram for our database which shows the associations between the tables and the data held within each table.  The tables seek to contain each of the main components of the database to their own tables while also being able to easily create queries to intuitively search the database and make changes as needed. 
 
+\begin{figure}[h]
+	\centering
+	\caption{An Entity Relationship Diagram of the Database}
+	\includegraphics[width=\linewidth]{database}
+	\label{fig:ERD}
+\end{figure}
 
+\subsection*{PostgreSQL Setup}
+
+Creating a database on Amazon Web Services proved to be extremely intuitive and simple with their extensive documentation.  Amazon offers relational database creation under a wide variety of languages and PostgreSQL is one of them.  Upon creating the database on AWS, the following step was to create the tables for the database.  This step involved the use of pgAdmin.  pgAdmin is an open-source administration and development platform for PostgreSQL.  The creation of the tables involved the use of SQL to create tables with the desired fields and their data types.  Below is an example of a table created for the database on pgAdmin.  The choice of SQL made creating the tables extremely simple with the clear syntax of the data structure and data types.
+
+\begin{figure}[h]
+	\centering
+	\caption{SQL Example of the User Table}
+	\includegraphics[width=\linewidth]{database_user_table}
+	\label{fig:SQL Table}
+\end{figure}
+
+\section*{Archive Backend}
+
+The back-end will make use of node.js and express to keep JavaScript across the stack.  The benefits besides maintaining a single language which will make testing and communication easier on our team also include its lightweight and efficient performance alongside the ease of use with express being a framework within the node environment.  Express will make creating the API much simpler and easier.  Typescript will also be used over JavaScript for the benefits of easier to code and avoid errors in the code that could lead to issues.
+One of the main features will be account creation and logging into the account for users to be able to have their own library of images and their own favorites.  The ability to search and view images and create tags or favorite images will be key features of the website.  The website on the public-facing side will be used to gather interest in the images and activities at the observatory and these features hope to accomplish that goal.  
+The administrator side of the website will seek to manage the database of the images taken from the telescope.  The ability to edit metadata and to add, edit, or delete images will help to keep the database sorted while also allowing for an always accessible way to interact with the images.  The online features and cloud functionality of the website will assist in preserving the images.  These will be the main functions for the API to create a website for the images.
+
+\subsection{Astronomical Visualization Metadata}
+
+For every image taken at the Robinson Observatory, the telescope software is able to provide a standardized set of information about the image which is stored in associated metadata.  This standard metadata is known as the astronomical visualization metadata (AVM) standard.  The standard is recognized by the international virtual observatory alliance (IVOA) which is a worldwide scientific organization that facilitates international collaboration for access to data gathered by observatories around the world.  With this standard in place, accessing and associating metadata for our website will be much simpler.  The required fields for the database will be well defined in accordance to the AVM standard.
+The AVM standard can be broken down into five separate categories: creator, content, observation, publisher, and file.  The creator category contains information about the person who created the image and how to contact them.  The content section is the title of the astronomical object with short description and some general information such as the type of the object.  The observation section holds the spatial information and coordinates, the section of the light spectrum used, and additional information for its location in space.  The publisher information is the institution associated with the observatory and how to contact.  The file metadata holds information about the image such as file type and size.
+The image below contains the AVM standard with format type and examples.
+
+\begin{figure}[h]
+	\centering
+	\caption{AVM Tags Standard with Examples}
+	\includegraphics[width=\linewidth]{avm_standards}
+	\label{fig:AVM Standards}
+\end{figure}
 
 \section*{Model Telescope Control}
 
