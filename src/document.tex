@@ -619,7 +619,12 @@ Below is an entity relationship diagram for our database which shows the associa
 
 \subsection*{PostgreSQL Setup}
 
-Creating a database on Amazon Web Services proved to be extremely intuitive and simple with their extensive documentation.  Amazon offers relational database creation under a wide variety of languages and PostgreSQL is one of them.  Upon creating the database on AWS, the following step was to create the tables for the database.  This step involved the use of pgAdmin.  pgAdmin is an open-source administration and development platform for PostgreSQL.  The creation of the tables involved the use of SQL to create tables with the desired fields and their data types.  Below is an example of a table created for the database on pgAdmin.  The choice of SQL made creating the tables extremely simple with the clear syntax of the data structure and data types.
+Creating a database on Amazon Web Services proved to be extremely intuitive and simple with their extensive documentation.  Amazon offers relational database creation under a wide variety of languages and PostgreSQL is one of them.  Upon creating the database on AWS, the following step was to create the tables for the database.  This step involved the use of pgAdmin.  pgAdmin is an open-source administration and development platform for PostgreSQL.  The creation of the tables involved the use of SQL to create tables with the desired fields and their data types.  Below is an example of a table created for the database on pgAdmin.  The choice of SQL made creating the tables extremely simple with the clear syntax of the data structure and data types.  Queries are also simplified through their use of intuitive key words to form a desired search based on conditions to capture the desired subset of information.
+
+\subsection{Users Table}
+
+The users table seeks to form a base for the database to form associations with images and their respective metadata.  The users table will contain some personal information about the user for the purpose of account security but the information will not be shared or displayed publicly.  Their full name and email will only be viewable by the users themselves.  Their username will be used to log in to the website along with their password.  The passwords will be hashed using bcrypt.  Bcrypt is a long-standing and proven password hashing function designed by Niels Provos and David Mazières.  Bcrypt makes use of salt and is resistant to several variations of attacks such as a brute-force search or a rainbow table attack.  Password recovery will work through email as a form of authentication to improve account security.  
+A user ID will be associated with each account as a method of keeping track of accounts without any personal identification and each account will be assigned an account type.  The account type will be either public or administrator.  A public account is meant for the general public to interact with the website and view the images made available by the observatory.  A general account will be able to search the images and favorite images of their choice.  The search functionality will find the best match to their criteria based on associated tags of images assigned by administrator accounts.  The administrator accounts will involve the astronomer team and those involved with the observatory professionally.  These accounts will have special access including features such as adding and deleting images from the database and editing metadata information.
 
 \begin{figure}[h]
 	\centering
@@ -627,6 +632,12 @@ Creating a database on Amazon Web Services proved to be extremely intuitive and 
 	\includegraphics[width=\linewidth]{database_user_table}
 	\label{fig:SQL Table}
 \end{figure}
+
+\subsection{Images Table}
+
+
+
+\subsection{Metadata Table}
 
 \section*{Archive Backend}
 
