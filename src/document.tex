@@ -623,8 +623,10 @@ Creating a database on Amazon Web Services proved to be extremely intuitive and 
 
 \subsection{Users Table}
 
-The users table seeks to form a base for the database to form associations with images and their respective metadata.  The users table will contain some personal information about the user for the purpose of account security but the information will not be shared or displayed publicly.  Their full name and email will only be viewable by the users themselves.  Their username will be used to log in to the website along with their password.  The passwords will be hashed using bcrypt.  Bcrypt is a long-standing and proven password hashing function designed by Niels Provos and David Mazières.  Bcrypt makes use of salt and is resistant to several variations of attacks such as a brute-force search or a rainbow table attack.  Password recovery will work through email as a form of authentication to improve account security.  
-A user ID will be associated with each account as a method of keeping track of accounts without any personal identification and also function as the primary key of the database and each account will be assigned an account type.  The account type will be either public or administrator.  A public account is meant for the general public to interact with the website and view the images made available by the observatory.  A general account will be able to search the images and favorite images of their choice.  The search functionality will find the best match to their criteria based on associated tags of images assigned by administrator accounts.  The administrator accounts will involve the astronomer team and those involved with the observatory professionally.  These accounts will have special access including features such as adding and deleting images from the database and editing metadata information.
+The users table seeks to form a base for the database to form associations with images and their respective metadata.  Each user can be associated to as many images as they desire.  The users table will contain some personal information about the user for the purpose of account security but the information will not be shared or displayed publicly.  Their full name and email will only be viewable by the users themselves.  Their username will be used to log in to the website along with their password.  The passwords will be hashed using bcrypt.  Bcrypt is a long-standing and proven password hashing function designed by Niels Provos and David Mazières.  Bcrypt makes use of salt and is resistant to several variations of attacks such as a brute-force search or a rainbow table attack.  Password recovery will work through email as a form of authentication to improve account security.  
+A user ID will be associated with each account as a method of keeping track of accounts without any personal identification and each account will be assigned an account type.  The account type will be either public or administrator.  A public account is meant for the general public to interact with the website and view the images made available by the observatory.  A general account will be able to search the images and favorite images of their choice.  The search functionality will find the best match to their criteria based on associated tags of images assigned by administrator accounts.  The administrator accounts will involve the astronomer team and those involved with the observatory professionally.  These accounts will have special access including features such as adding and deleting images from the database and editing metadata information.
+Below is an example of the SQL for the users table.
+
 
 \begin{figure}[h]
 	\centering
@@ -635,7 +637,7 @@ A user ID will be associated with each account as a method of keeping track of a
 
 \subsection{Images Table}
 
-The images table will associate images to their metadata and users can associate themselves to multiple images.  The images will make use of a user ID and an image ID to associate images with users in cases such as when they favorite an image or if they uploaded the image to the database.  The images themselves won’t be stored directly on the database but their file paths will be stored on the database to reduce personal data storage requirements and rely on the use of cloud storage.  Tags will be created for images in order for them to be identifiable. Tags such as “full moon”, “Polaris”, “the north star” will assist the search functionality of the database to make the website and images more accessible and increase community interactions.  A favorite functionality will also allow for images to be associated to users in a personal gallery of favorited images from the observatory.  Below is an example of the SQL for the images table.
+The images table will associate images to their metadata and users can associate themselves to multiple images.  Each user can be associated to many images and each image will be associated to a specific metadata.  The images will make use of a user ID and an image ID to associate images with users in cases such as when they favorite an image or if they uploaded the image to the database.  The images themselves won’t be stored directly on the database but their file paths will be stored on the database to reduce personal data storage requirements and rely on the use of cloud storage.  Tags will be created for images in order for them to be identifiable. Tags such as “full moon”, “Polaris”, “the north star” will assist the search functionality of the database to make the website and images more accessible and increase community interactions.  A favorite functionality will also allow for images to be associated to users in a personal gallery of favorited images from the observatory.  Below is an example of the SQL for the images table.
 
 \begin{figure}[h]
 	\centering
@@ -646,13 +648,14 @@ The images table will associate images to their metadata and users can associate
 
 \subsection{Metadata Table}
 
+The metadata table will associate metadata with their respective image.  The relationship will be one-to-one as each image should have its own unique metadata.  The metadata table will hold all the pertinent fields which will be gathered through the telescope and the associated software.  The metadata gathered form the telescope software will be used to fill the metadata table.  The fields will hold varying levels of categorized information.  The creator field will hold information such as contact information for the creator including their full name, email, telephone, and address.  Any fields that are not filled out will default to an empty string.  The content field will hold information including the name of the subject, a short description, and date collected.  The observation field will include the type of telescope used, the facility where the image was capture, the light spectrum, spatial coordination, and other technical information regarding how and where the image was taken.  The publisher field will include the associated telescope and their sponsor.  The file section will include information on the file type of the image and the size of the image.  Below is an example of the SQL for the metadata table.
+
 \begin{figure}[h]
 	\centering
 	\caption{SQL Example of the Metadata Table}
 	\includegraphics[width=\linewidth]{database_metadata_table}
 	\label{fig:SQL Metadata Table}
 \end{figure}
-
 
 \section*{Archive Backend}
 
