@@ -769,7 +769,7 @@ Below is an entity relationship diagram for our database which shows the associa
 
 Creating a database on Amazon Web Services proved to be extremely intuitive and simple with their extensive documentation.  Amazon offers relational database creation under a wide variety of languages and PostgreSQL is one of them.  Upon creating the database on AWS, the following step was to create the tables for the database.  This step involved the use of pgAdmin.  pgAdmin is an open-source administration and development platform for PostgreSQL.  The creation of the tables involved the use of SQL to create tables with the desired fields and their data types.  Below is an example of a table created for the database on pgAdmin.  The choice of SQL made creating the tables extremely simple with the clear syntax of the data structure and data types.  Queries are also simplified through their use of intuitive key words to form a desired search based on conditions to capture the desired subset of information.
 
-\subsection{Users Table}
+\subsection*{Users Table}
 
 The users table seeks to form a base for the database to form associations with images and their respective metadata.  Each user can be associated to as many images as they desire.  The users table will contain some personal information about the user for the purpose of account security but the information will not be shared or displayed publicly.  Their full name and email will only be viewable by the users themselves.  Their username will be used to log in to the website along with their password.  The passwords will be hashed using bcrypt.  Bcrypt is a long-standing and proven password hashing function designed by Niels Provos and David Mazières.  Bcrypt makes use of salt and is resistant to several variations of attacks such as a brute-force search or a rainbow table attack.  Password recovery will work through email as a form of authentication to improve account security.  
 A user ID will be associated with each account as a method of keeping track of accounts without any personal identification and each account will be assigned an account type.  The account type will be either public or administrator.  A public account is meant for the general public to interact with the website and view the images made available by the observatory.  A general account will be able to search the images and favorite images of their choice.  The search functionality will find the best match to their criteria based on associated tags of images assigned by administrator accounts.  The administrator accounts will involve the astronomer team and those involved with the observatory professionally.  These accounts will have special access including features such as adding and deleting images from the database and editing metadata information.
@@ -783,7 +783,7 @@ Below is an example of the SQL for the users table.
 	\label{fig:SQL Users Table}
 \end{figure}
 
-\subsection{Images Table}
+\subsection*{Images Table}
 
 The images table will associate images to their metadata and users can associate themselves to multiple images.  Each user can be associated to many images and each image will be associated to a specific metadata.  The images will make use of a user ID and an image ID to associate images with users in cases such as when they favorite an image or if they uploaded the image to the database.  The images themselves won’t be stored directly on the database but their file paths will be stored on the database to reduce personal data storage requirements and rely on the use of cloud storage.  Tags will be created for images in order for them to be identifiable. Tags such as “full moon”, “Polaris”, “the north star” will assist the search functionality of the database to make the website and images more accessible and increase community interactions.  A favorite functionality will also allow for images to be associated to users in a personal gallery of favorited images from the observatory.  Below is an example of the SQL for the images table.
 
@@ -824,6 +824,7 @@ The back-end will make use of node.js and express to keep JavaScript across the 
 One of the main features will be account creation and logging into the account for users to be able to have their own library of images and their own favorites.  The ability to search and view images and create tags or favorite images will be key features of the website.  The website on the public-facing side will be used to gather interest in the images and activities at the observatory and these features hope to accomplish that goal.  
 The administrator side of the website will seek to manage the database of the images taken from the telescope.  The ability to edit metadata and to add, edit, or delete images will help to keep the database sorted while also allowing for an always accessible way to interact with the images.  The online features and cloud functionality of the website will assist in preserving the images.  These will be the main functions for the API to create a website for the images.
 
+
 \subsection{Amazon Elastic Beanstalk}
 
 Amazon offers an environment that allows for quick deployment and development of web applications through their elastic beanstalk service.  The service facilitates server management issues such as storage capacity, scaling, and monitoring and allows for simplified management of web applications to quickly deploy to the AWS cloud servers.
@@ -833,6 +834,7 @@ Amazon offers an environment that allows for quick deployment and development of
 Node.js offers a server-side runtime environment that enables web applications to be built quickly.  Node.js utilizes JavaScript and is an open-source, cross-platform tool.  AWS Elastic Beanstalk will offer the web hosting services and the application will utilize Node.js alongside the Express framework.
 
 \subsubsection{Database Connection}
+
 The first step of the backend development will involve connecting the established PostgreSQL database to the web application.  Connecting to the database requires some information from the database.  The host indicate the endpoint of the database.  The port indicates the port used for the connection.  The user and password will ensure that the access and connection to the database is valid.  In the sample code below, the PostgreSQL connection is established and the connection is tested.  If the connection fails, the console will output an error notifying the connection failed. Otherwise, the console will output a successful connection message.
 Creating a Node.js platform and connecting the PostgreSQL database was a straightforward process.  Sample code provided by AWS allows for a quick preview of the capabilities of the web application and provides experience of the ease of uploading the application when needed.
 The next steps will involve creating the web application involving Node.js alongside the Express framework.
@@ -844,7 +846,22 @@ The next steps will involve creating the web application involving Node.js along
 	\label{fig:javascripthttprequest}
 \end{figure}
 
-\subsection{API Calls}
+\subsection*{API Calls}
+
+Communication between the website and the database will be handled through the backend through establishing a connection with the database as seen above and executing queries to make changes to the database based on user requests.  A query is a request for data from the tables of a database.  Keywords such as ‘CREATE’, ‘DELETE’, or ‘SELECT’ are used to add, remove, or search for data based on conditions such as matching the search using ‘WHERE’ or inserting using ‘VALUES’ followed by the data that will be entered into the database.  Queries will be the main component for the functionality of the API.  The following sections will outline a series of API calls.
+
+\subsubsection*{Login}
+
+The login page will grant access to the website and the features included.  The user will be required to input their username and password which will be verified against the hashed password saved to the database.  If the username and password match to the values stored on the database, then the user will be logged in.
+
+\subsubsection*{Register}
+\subsubsection*{Search}
+\subsubsection*{Edit Metadata}
+\subsubsection*{Favorite}
+\subsubsection*{Remove From Favorites}
+\subsubsection*{Add Tag}
+\subsubsection*{Remove Tag}
+
 
 
 \section*{Model Telescope Control}
