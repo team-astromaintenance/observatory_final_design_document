@@ -805,12 +805,6 @@ The metadata table will associate metadata with their respective image.  The rel
 	\label{fig:SQL Metadata Table}
 \end{figure}
 
-\section*{Archive Backend}
-
-The back-end will make use of node.js and express to keep JavaScript across the stack.  The benefits besides maintaining a single language which will make testing and communication easier on our team also include its lightweight and efficient performance alongside the ease of use with express being a framework within the node environment.  Express will make creating the API much simpler and easier.  Typescript will also be used over JavaScript for the benefits of easier to code and avoid errors in the code that could lead to issues.
-One of the main features will be account creation and logging into the account for users to be able to have their own library of images and their own favorites.  The ability to search and view images and create tags or favorite images will be key features of the website.  The website on the public-facing side will be used to gather interest in the images and activities at the observatory and these features hope to accomplish that goal.  
-The administrator side of the website will seek to manage the database of the images taken from the telescope.  The ability to edit metadata and to add, edit, or delete images will help to keep the database sorted while also allowing for an always accessible way to interact with the images.  The online features and cloud functionality of the website will assist in preserving the images.  These will be the main functions for the API to create a website for the images.
-
 \subsection{Astronomical Visualization Metadata}
 
 For every image taken at the Robinson Observatory, the telescope software is able to provide a standardized set of information about the image which is stored in associated metadata.  This standard metadata is known as the astronomical visualization metadata (AVM) standard.  The standard is recognized by the international virtual observatory alliance (IVOA) which is a worldwide scientific organization that facilitates international collaboration for access to data gathered by observatories around the world.  With this standard in place, accessing and associating metadata for our website will be much simpler.  The required fields for the database will be well defined in accordance to the AVM standard.
@@ -823,6 +817,21 @@ The image below contains the AVM standard with format type and examples.
 	\includegraphics[width=\linewidth]{avm_standards}
 	\label{fig:AVM Standards}
 \end{figure}
+
+\section*{Archive Backend}
+
+The back-end will make use of node.js and express to keep JavaScript across the stack.  The benefits besides maintaining a single language which will make testing and communication easier on our team also include its lightweight and efficient performance alongside the ease of use with express being a framework within the node environment.  Express will make creating the API much simpler and easier.  Typescript will also be used over JavaScript for the benefits of easier to code and avoid errors in the code that could lead to issues.
+One of the main features will be account creation and logging into the account for users to be able to have their own library of images and their own favorites.  The ability to search and view images and create tags or favorite images will be key features of the website.  The website on the public-facing side will be used to gather interest in the images and activities at the observatory and these features hope to accomplish that goal.  
+The administrator side of the website will seek to manage the database of the images taken from the telescope.  The ability to edit metadata and to add, edit, or delete images will help to keep the database sorted while also allowing for an always accessible way to interact with the images.  The online features and cloud functionality of the website will assist in preserving the images.  These will be the main functions for the API to create a website for the images.
+
+\subsection{Amazon Elastic Beanstalk}
+
+Amazon offers an environment that allows for quick deployment and development of web applications through their elastic beanstalk service.  The service facilitates server management issues such as storage capacity, scaling, and monitoring and allows for simplified management of web applications to quickly deploy to the AWS cloud servers.
+Creating a Node.js platform and connecting the PostgreSQL database was a straightforward process.  Sample code provided by AWS allows for a quick preview of the capabilities of the web application and provides experience of the ease of uploading the application when needed.
+The next steps will involve creating the web application involving Node.js alongside the Express framework.
+
+\subsection{Node.js Development}
+%Loads of API calls and example code here
 
 \section*{Model Telescope Control}
 
