@@ -827,11 +827,25 @@ The administrator side of the website will seek to manage the database of the im
 \subsection{Amazon Elastic Beanstalk}
 
 Amazon offers an environment that allows for quick deployment and development of web applications through their elastic beanstalk service.  The service facilitates server management issues such as storage capacity, scaling, and monitoring and allows for simplified management of web applications to quickly deploy to the AWS cloud servers.
+
+\subsection{Node.js Development}
+
+Node.js offers a server-side runtime environment that enables web applications to be built quickly.  Node.js utilizes JavaScript and is an open-source, cross-platform tool.  AWS Elastic Beanstalk will offer the web hosting services and the application will utilize Node.js alongside the Express framework.
+
+\subsubsection{Database Connection}
+The first step of the backend development will involve connecting the established PostgreSQL database to the web application.  Connecting to the database requires some information from the database.  The host indicate the endpoint of the database.  The port indicates the port used for the connection.  The user and password will ensure that the access and connection to the database is valid.  In the sample code below, the PostgreSQL connection is established and the connection is tested.  If the connection fails, the console will output an error notifying the connection failed. Otherwise, the console will output a successful connection message.
 Creating a Node.js platform and connecting the PostgreSQL database was a straightforward process.  Sample code provided by AWS allows for a quick preview of the capabilities of the web application and provides experience of the ease of uploading the application when needed.
 The next steps will involve creating the web application involving Node.js alongside the Express framework.
 
-\subsection{Node.js Development}
-%Loads of API calls and example code here
+\begin{figure}[h]
+	\centering
+	\caption{PostgreSQL Database Connection}
+	\includegraphics[scale=0.5]{database_connection}
+	\label{fig:javascripthttprequest}
+\end{figure}
+
+\subsection{API Calls}
+
 
 \section*{Model Telescope Control}
 
