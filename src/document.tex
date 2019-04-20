@@ -850,11 +850,28 @@ The next steps will involve creating the web application involving Node.js along
 
 Communication between the website and the database will be handled through the backend through establishing a connection with the database as seen above and executing queries to make changes to the database based on user requests.  A query is a request for data from the tables of a database.  Keywords such as ‘CREATE’, ‘DELETE’, or ‘SELECT’ are used to add, remove, or search for data based on conditions such as matching the search using ‘WHERE’ or inserting using ‘VALUES’ followed by the data that will be entered into the database.  Queries will be the main component for the functionality of the API.  The following sections will outline a series of API calls.
 
+\subsubsection*{Register}
+
+Account creation will allow users to join the community and view and favorites images that they enjoy.  The process will require some personal information from the user for account security.  The sign-up process will require the user’s full name, an email, and a unique username with a secure password.  The password will be stored hashed with the bcrypt algorithm and functions to protect account security.  Below is an example query without password encryption and raw values.  All the values of the users table will be generated based on user inputs to create an account.  A row will be generated within the table on the database and their account will be created and ready to be used.
+
+\begin{figure}[h]
+	\centering
+	\caption{SQL Example of Account creation}
+	\includegraphics[width=\linewidth]{api_raw_register}
+	\label{fig:API Register}
+\end{figure}
+
 \subsubsection*{Login}
 
-The login page will grant access to the website and the features included.  The user will be required to input their username and password which will be verified against the hashed password saved to the database.  The bcrypt library will be utilized for hashing and comparing passwords for the security of users.  If the username and password match to the values stored on the database, then the user will be logged in.  With an account a general user will gain access to being able to favorite images viewable within the web application.  Users will be able to view each other’s favorite image galleries to form a sense of community amongst fans of the observatory to share images they find exciting or unique.
+The login page will grant access to the website and the features included.  The user will be required to input their username and password which will be verified against the hashed password saved to the database.  The bcrypt library will be utilized for hashing and comparing passwords for the security of users.  If the username and password match to the values stored on the database, then the user will be logged in.  With an account a general user will gain access to being able to favorite images viewable within the web application.  Users will be able to view each other’s favorite image galleries to form a sense of community amongst fans of the observatory to share images they find exciting or unique.  Below is an example of the bcrypt hash and compare functionality.
 
-\subsubsection*{Register}
+\begin{figure}[h]
+	\centering
+	\caption{bcrypt Functions}
+	\includegraphics[width=\linewidth]{api_bcrypt}
+	\label{fig:API bcrypt}
+\end{figure}
+
 \subsubsection*{Search}
 \subsubsection*{Edit Metadata}
 \subsubsection*{Favorite}
