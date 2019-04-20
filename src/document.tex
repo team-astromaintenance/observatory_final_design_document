@@ -616,9 +616,19 @@ The display technique is familiar to most modern users. Many modern websites and
 
 Structured Query Language (SQL) is the most popular language for managing Relational Database Management System (RDBMS).  SQL was initially developed by IBM researchers Raymond Boyce and Donald Chamberlin in the 1970s.  SQL includes data query, data manipulation (insert, update, and delete), data definition, and data access control.  SQL is known for its readability and ease of learning.  MySQL and Microsoft SQL Server are two widely used database systems each being used for LAMP stacks and WISA stacks respectively.  Just recently, both options have become available on Windows, Linux, and MAC OS X.  Due to its age and availability, SQL is heavily documented in its functionality.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.251\linewidth]{mysql}
+\end{figure}
+
 \subsubsection*{MySQL}
 
 MySQL is an open source Relational Database Management System (RDBMS) that uses Structured Query Language (SQL).  MySQL is the database component of the LAMP (Linux, Apache, MySQL, PHP) web application software stack.  MySQL is used by popular companies such as Netflix, NASA, Tesla, and Youtube.  MySQL was created by a Swedish company, MySQL AB, by David Axmark and Michael Widenius in 1995 and is currently owned by Oracle.  Similar to SQL itself due to the age of MySQL, its complexity and problems have been encountered and documented so solutions are readily available.  The popularity of MySQL creates a loop of being popular due to its popularity.  Developers are readily available and the cheap hosting environments makes MySQL very accessible.  It is primarily written in C and C++.  While still open source under Oracle, some modules are proprietary and close-sourced.  
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.251\linewidth]{microsoftsql}
+\end{figure}
 
 \subsubsection*{Microsoft SQL Server}
 
@@ -632,21 +642,50 @@ NoSQL Databases are a newer technology from the late 2000s that were developed s
 
 \subsection*{SQL Alternatives}
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.251\linewidth]{mariadb}
+\end{figure}
+
 \subsubsection*{MariaDB}
 
 MariaDB was created by MySQL founder Michael Widenius when Oracle obtained MySQL in 2010 and stays true to its open source, community driven development.  MariaDB is a direct alternative to MySQL and is a fork of MySQL.  The functionality is similar enough that MariaDB functions as a database as a drop-in replacement for MySQL.  The database structure and indexes are the same as MySQL.  MariaDB is used by companies such as Google, Wikipedia, RedHat, etc.  The main advantages of MariaDB despite being a fork is its more efficient performance and newer features.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.251\linewidth]{postgresql}
+\end{figure}
 
 \subsubsection*{PostgreSQL}
 
 PostgreSQL is another open source SQL database but it is object-relational.  Object-relational means that there is support for user-defined objects and their behaviors e.g. data types, functions, operators, domains, and indexes.  Alongside these objects, PostgreSQL has a wide support for data types and structures.  PostgreSQL can store much more data in their rows without negatively impacted performance.  MySQL and MariaDB are known for running into file size limitations and PostgreSQL will avoid those problems.  The highly customizable databases and wide support for programming languages are some key features of PostgreSQL.  PostgreSQL is not as popular as other options but it has many unique features.
 
-\subsubsection*{mongoDB}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.251\linewidth]{mongodb}
+\end{figure}
 
-MongoDB is the database component of the MEAN (mongoDB, Express, Angular, Node.js) and is a NoSQL database.  MongoDB is based in JavaScript alongside the entire MEAN web-based application stack.  MongoDB was developed in 2007 and introduced to the market in 2009 as an open source database that was maintained and supported by MongoDB Inc.  MongoDB utilizes JSON based document oriented queries that function much more quickly than SQL queries.  NoSQL databases are a more modern approach to databases and mongoDB is in the forefront.  In terms of modernity and future web stack development, mongoDB seems like the most flexible choice for databases.  
+\subsubsection*{MongoDB}
+
+MongoDB is the database component of the MEAN (mongoDB, Express, Angular, Node.js) and is a NoSQL database.  MongoDB is based in JavaScript alongside the entire MEAN web-based application stack.  MongoDB was developed in 2007 and introduced to the market in 2009 as an open source database that was maintained and supported by MongoDB Inc.  MongoDB utilizes JSON based document oriented queries that function much more quickly than SQL queries.  NoSQL databases are a more modern approach to databases and mongoDB is in the forefront.  In terms of modernity and future web stack development, mongoDB seems like the most flexible choice for databases. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.251\linewidth]{dynamodb}
+\end{figure}
+
+\subsection{DynamoDB} 
+
+DynamoDB is a noSQL database developed by Amazon.  DynamoDB makes use of tables, items, and attributes and seems to have a much more simplified query calls for a noSQL database as compared to mongoDB.  In line with the Amazon brand, the database is designed with scalability in mind and offers a wide variety of features if chosen alongside with Amazon Web Services.  DynamoDB seems like an interesting option for a noSQL database.
 
 \section*{Backend Research}
 
-The main component for communication between the front-end user experience and the database itself.  The server-side functionality of retrieving and storing data as requested by users into the database and other various API function calls is the job of the back-end.  Mainly consists of the servers, databases, APIs, and operating systems.      
+The main component for communication between the front-end user experience and the database itself.  The server-side functionality of retrieving and storing data as requested by users into the database and other various API function calls is the job of the back-end.  Mainly consists of the servers, databases, APIs, and operating systems.   
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.251\linewidth]{php}
+\end{figure}   
 
 \subsection*{PHP}
 
@@ -670,9 +709,21 @@ Node.js and the MEAN stack in general is not as mature as technologies as PHP an
 
 \subsection*{Express}
 
+Express is a lightweight web application framework for Node.  Express is known for simplifying routing, which is how a web application’s endpoints respond to client requests.  This greatly simplifies the web application development process and eases data communication between the backend and the frontend.  Not only is the connection eased but being able to make requests and calls are simplified also because of the framework that express offers.  Node.js and Express offer a straightforward platform to developing a web application backend.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.251\linewidth]{aspnet}
+\end{figure}
+
 \subsection*{ASP.NET}
 
 ASP.NET is a combination of Active Server Pages (ASP) and .Net Framework.  ASP is Microsoft’s scripting engine for dynamic web pages and .NET is the software that enables use of ASP.  ASP.NET is part of the WISA stack.  The closed source aspect of being a Microsoft product can be a drawback.  WISA stacks and the prices associated seem to be mainly targeting enterprise level websites. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.251\linewidth]{rubyonrails}
+\end{figure}
 
 \subsection*{Ruby on Rails}
 
@@ -682,10 +733,14 @@ Ruby on Rails is a server-side web application framework written in Ruby under M
 
 The current website for the Robinson Observatory is currently maintained by the astronomer team and is apart of the UCF website domain.  This will give us flexibility in what features will be added.  While working on the future additions to the website, we will host the website on our own service.  Image hosting and associated data will be a large component of the website.  Data storage and security will be a requirement to keep in mind.  The possibility of machine learning being a functionality will also increase storage space dramatically.	
 
-\subsection*{Amazon Web Services (AWS) vs DigitalOcean vs Google Cloud}
+\subsection*{Web Host Options}
 
 The big three website hosting services are AWS, DigitalOcean, and Google Cloud.  In terms of cost and user-friendly experience in setting up a service, DigitalOcean and Google Cloud seem much more simpler.  AWS offers a wide variety of options and varying levels security or requirements which can make narrowing down your specific needs confusing.  DigitalOcean seems to be the most affordable choice alongside with the medium-scale demonstration size of the website for this project will be.  All these options offer special deals and credits for students and should all be affordable in terms of support for the next year until our website functionalities are integrated to the robinson observatory website.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.251\linewidth]{aws}
+\end{figure}
 
 \subsection*{Amazon Web Services (AWS)}
 
