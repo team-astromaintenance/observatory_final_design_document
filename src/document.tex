@@ -652,11 +652,23 @@ The main component for communication between the front-end user experience and t
 
 PHP began development in 1994 by Rasmus Lerdorf.   PHP is a general-purpose programming language designed for web development and can be easily embedded into HTML.  The PHP code is executed server side which will send the corresponding html to the client.  From personal experience it is somewhat intuitive and relatively streamlined and template based.  Within the PHP code, a connection to the database will be made, a SQL query will be processed from the client and the corresponding data will be sent or retrieved from the SQL database.  The connection will then be closed until the next client interaction happens.   
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.251\linewidth]{nodejs}
+\end{figure}
+
 \subsection*{Node.js}
 
 Node.js is an open source server environment that executes JavaScript on the server and works in conjunction with express.  Node.js differs from PHP as it makes use of asynchronous programming.  Asynchronous programming makes Node.js much more efficient as it is able to send requests and immediately prepare other requests rather than waiting after every single request.  As soon as a request is ready, the contents will be sent to the client rather than waiting for the request to be fulfilled.  The MEAN stack of Node.js will make use of JavaScript across the stack which will provide easier communication across the levels of the stack between developers.  This aspect will be particularly useful in the scope of this project as there are very few of us and communication and ease of troubleshooting is extremely important.
 
-Node.js and the MEAN stack in general is not as mature as technologies as PHP and the LAMP stack but their more modern approach to web development is very promising and the growth in popularity in the last decade is exciting.  Asynchronous calls are more useful in real time environments such as chat systems while not too critical for websites or images but the benefits are there.  
+Node.js and the MEAN stack in general is not as mature as technologies as PHP and the LAMP stack but their more modern approach to web development is very promising and the growth in popularity in the last decade is exciting.  Asynchronous calls allow for better communication on both ends with real-time connections and better data exchange.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.251\linewidth]{express}
+\end{figure}
+
+\subsection*{Express}
 
 \subsection*{ASP.NET}
 
@@ -691,6 +703,11 @@ Below is an entity relationship diagram for our database which shows the associa
 	\caption{An Entity Relationship Diagram of the Database}
 	\includegraphics[width=\linewidth]{database}
 	\label{fig:ERD}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.251\linewidth]{postgresql}
 \end{figure}
 
 \subsection*{PostgreSQL Setup}
