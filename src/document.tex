@@ -292,6 +292,11 @@ We opted to utilize a frontend framework in order to facilitate a high degree of
 
 There are many modern frontend frameworks which enable developers to quickly create highly interactive websites efficiently. Our frontend solution will need to be data efficient to reduce the strain on potentially poor connections. It is possible that potential users will have a poor internet connection while attempting to access the data. (As is the case in some observatories.) Thus it is necessary to choose the appropriate framework solution which enables rapid development while maintaining a focus on efficiency.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.251\linewidth]{angular}
+\end{figure}
+
 \subsubsection*{Angular}
 
 The Angular web framework was released by Google in September of 2016.\cite{angularrelease} Angular (also known as Angular 2) was released as a replacement for Angular 1. Its release focused on "a wide range of use cases,...[optimization] for developer productivity, small payload size, and performance."\cite{angularrelease} The framework was built from the beginning via "collaboration with the open source development community."\cite{angularrelease} Thus it has received input from many different developers to ensure that it is flexible enough for general use.
@@ -301,6 +306,11 @@ Angular utilizes TypeScript as its implementation language which helps reduce bu
 Angular is built utilizing component objects. The Angular official quick start guide states that "components are the fundamental building blocks of Angular applications."\cite{angularquickstart} These components "display data on the screen, listen for user input, and take action based on that input."\cite{angularquickstart} Components are a good way of breaking one's code up into reusable pieces. By compartmentalizing one's code in this way, there is a reduction in the duplication of effort. Likewise, it creates the opportunity to test each component separately from the rest of the overall application.
 
 Angular is a good candidate for our archive frontend. It was designed to be extremely flexible. Likewise, it is a commonly used industry frontend framework. Employers look for candidates with existing knowledge of frameworks. Thus it would be useful for our team to gain experience using such a common library.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.25\linewidth]{bootstrap}
+\end{figure}
 
 \subsubsection*{Bootstrap}
 
@@ -312,6 +322,11 @@ Unlike other frameworks, Bootstrap relies on jQuery to handle its JavaScript int
 
 Bootstrap's flexibility is both a strength and a weakness. Experienced JavaScript developers will find said flexibility very useful and will be able to structure their code in a familiar fashion. However, our team lacks experience building frontend web applications. Thus, an opinionated framework may become an initial disadvantage. Other frameworks provide a standard way of structuring code and therefore might be more friendly for our team to work with.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.25\linewidth]{ember}
+\end{figure}
+
 \subsubsection*{Ember}
 
 Ember was a JavaScript frontend library released to compete with Backbone.js, SproutCore, Cappuccino, and Dojo.\cite{emberrelease} Many Ember's original competitors have fallen out of the public eye since its release in August of 2012, yet Ember still sees wide adoption even today. Ember was a departure from aforementioned "microlibrary" competitors that were popular at the time of its launch. Ember was different because it focused on "helping developers grapple with the complexity of building 100\% JavaScript web applications."\cite{emberrelease} They did so by "[embracing] the tools that [web developers] were most comfortable with: HTML and CSS."\cite{emberrelease} Thus, Ember was created as an opinionated JavaScript framework which "[helps] you architect large, multi-page applications, but [helps] you to do so without breaking the basic building blocks of the web."\cite{emberrelease}
@@ -322,6 +337,11 @@ Ember decouples data from the display routes via objects called "models".\cite{e
 
 Ember's focus on preserving web browser functionality is definitely an advantage when compared to some frameworks that may cause something as simple as the back button to function incorrectly. Likewise, its opinionated framework style ensures that our team will have a good idea of how to structure our application. However, Ember's rigid structure might be too strict for our purposes. Our team has compartmentalized the web application into frontend and backend sub-teams. Thus, the frontend team needs to be flexible enough to accommodate however the backend structures their data before the frontend interacts with it.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.25\linewidth]{react}
+\end{figure}
+
 \subsubsection*{React}
 
 React was a Framework developed by Jordan Walke at Facebook. It was originally a propriety framework that they used internally. However, it was later released as an open-source framework at JSConf US.\cite{reactlaunch} It was released in 2013 and thus it is a relatively new framework in the JavaScript ecosystem.\cite{reactlaunch} However, it has seen high adoption rates among developers.
@@ -331,6 +351,13 @@ React is a single-page web application framework. It enables the developer to dy
 Components are React's way of splitting your application into reusable pieces. Likewise, Components determine how one structures the data on the user's end. React components "[take] in parameters...and [they return] a hierarchy of views to display."\cite{reacttutorial} The data is tightly coupled to the visual model. React's opinionated nature is ideal for our inexperienced developers. A framework like React that provides not only the tools for creating the UI we need but also provides structural guidance is an advantage over the other options available.
 
 React's structure and idioms are a good contender for implementation in our project. The single-page nature of React makes it ideal for places with low-bandwidth connections such as observatories. Likewise, the tight coupling of data and view provides a good starting point for structuring our code. Finally, React is widely used in the industry and so it would be an advantage for our team to gain experience using it.
+
+\newpage
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.25\linewidth]{vue}
+\end{figure}
 
 \subsubsection*{Vue}
 
@@ -346,6 +373,11 @@ Utilizing Vue for our project would mean depending on a relatively immature libr
 
 JavaScript is a ubiquitous frontend programming language for use in the browser. Recently, it has also gained popularity in the native application domain via Node.js. Node.js is a open-source cross-platform run-time environment which enables existing JavaScript developers to leverage their skills on the backend. However, despite JavaScript's popularity there are several alternatives that seek to eliminate some of JavaScript's intrinsic pitfalls.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.25\linewidth]{coffeescript}
+\end{figure}
+
 \subsubsection*{CoffeeScript}
 
 CoffeeScript is a language that compiles down to JavaScript.\cite{coffeescriptlittlebook} However, "CoffeeScript is not a superset of JavaScript, so although you can use external JavaScript libraries from inside CoffeeScript, you'll get syntax errors if you compile JavaScript as is."\cite{coffeescriptlittlebook} This sacrifice of direct compatibility comes with sever advantages. Notably, CoffeeScript's succinctness means that the developer typically has less code that they directly have to write.
@@ -357,6 +389,11 @@ CoffeeScript, once transpiled, runs as plain JavaScript in the client's browser.
 The other languages explored are statically typed; CoffeeScript is not. Dynamic typing can be a double edged blade. It enables rapid development which would be a boon for our team. Likewise, since the code is dynamically typed, it is very flexible. This flexibility ensures that code is resilient to changes in the code base that might require massive refactoring otherwise. However, dynamic typing also has a sinister side. Many bugs which are essentially impossible in a statically typed language can manifest in a dynamically typed language like CoffeeScript. Likewise, it is much harder to develop tools for a dynamically typed language. Type inference can bridge the gap somewhat but it does not yield the same fidelity of information that statically typed languages confers. Thus, the resultant tools associated with a dynamically typed language like CoffeeScript are somewhat weakened by the lack of strong types. Tools are a vital part of developing modern software and our team needs all the help we can get. Thus, the lack of extensive CoffeeScript tools are a potential downside that must be considered before our team commits to utilizing it for as our frontend language.
 
 Like some of the less popular frontends, utilizing CoffeeScript in our project would mean taking a gamble on a product that isn't as widely used as other solutions. Maintainers that come after us would need to be able to service the code without being tripped up by a potentially defunct programming language. However, there is an upside. CoffeeScript's features and syntax would mean less lines of code for our team to write. Language expressiveness is an often overlooked feature when planning a project. Utilizing the right tool for the job is an essential part of the planning process.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.25\linewidth]{dart}
+\end{figure}
 
 \subsubsection*{Dart}
 
@@ -373,6 +410,11 @@ Like the other languages explored, Dart has a unique set of tools associated wit
 Utilizing Dart in our frontend would also mean relying on yet another library. Dart has strong opinions about code structure and static typing. Thus, we would need to utilize a middleware library to act as a bridge between our Dart code and whatever frontend library we choose to utilize for implementation. It is possible that any of the libraries that we choose to implement our project may become unmaintained and fall into disuse. Reliance on yet another library reduces the maintainability of our project if future senior design students are tasked with updating, maintaining, or expanding our code. Such an eventuality must be considered before we include yet another library in our project.
 
 Dart represents the unique opportunity to be at the forefront of Google's vision of future application development. It is possible that the mobile market will shift towards a uniform platform like dart in the future. Our team would benefit not only from Dart's feature set but also its potential as a future resume boost. Likewise, given that the language is backed by Google, it is unlikely that it is going to be abandoned like less mature options might. Dart is a strong contender for use in our application frontend.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.25\linewidth]{typescript}
+\end{figure}
 
 \subsubsection*{TypeScript}
 
@@ -394,7 +436,14 @@ We selected React as our frontend framework for several reasons. However, one su
 
 React's focus on efficiency is very compelling. React utilizes the virtual Document Object Model (DOM) to ensure that updates to the visual DOM are only performed when it is absolutely necessary. Hardware in observatories can be very limited in performance. We wanted to ensure that whatever framework we utilize, we focus on delivering an efficient and lightweight user experience. Initial research into the differing frameworks highlighted React as the best contender that fulfilled said requirement. The combination of utilizing JSON API calls and efficient DOM updates will ensure that our web-app performs well enough that observatory researchers are able to utilize it without worrying about performance. This was a very high priority for our team since we envision researchers utilizing our application as an integral part of their daily routine. Any issues regarding performance would severely reduce the likelihood that researchers actually utilize our tool. People are very unlikely to use a tool if it doesn't "feel" good doing so.
 
-React integrates extremely well with TypeScript. The TypeScript website has a section dedicated to getting started with React.\cite{typescriptreacttutorial} Likewise, the React website features a similar tutorial.\cite{reacttypescripttutorial} Therefore, it was our conclusion that integration between the TypeScript language and the React framework would be painless. Our conclusion was reinforced by the existence of type annotations for all necessary React classes and components. Thus, we held a high degree of confidence that we would be able to exploit the advantages that come with using a typed language.
+React integrates extremely well with TypeScript. The TypeScript website has a section dedicated to getting started with React.\cite{typescriptreacttutorial} Likewise, the React website features a similar tutorial.\cite{reacttypescripttutorial} Figure \ref{fig:reacttypescriptexample} demonstrates how one is able to add types to properties in order to reduce the likelihood that invalid properties are passed to the wrong component.s Therefore, it was our conclusion that integration between the TypeScript language and the React framework would be painless. Our conclusion was reinforced by the existence of type annotations for all necessary React classes and components. Thus, we held a high degree of confidence that we would be able to exploit the advantages that come with using a typed language.
+
+\begin{figure}[h]
+	\centering
+	\caption{React TypeScript Example}
+	\includegraphics[scale=0.5]{react_typescript_example}
+	\label{fig:reacttypescriptexample}
+\end{figure}
 
 Dynamically typed languages are a liability to the stability of our eventual product. Our frontend website must be able to stand the test of time without unnecessary downtime or fatal bugs that might interrupt the workflow of our eventual users. Our team will not be around to perform maintenance on the archive frontend after we have long since graduated. Thus, in order to reduce the chance that another senior design time will have to come in and clean up our mess, we are avoiding the dynamically typed language JavaScript. We did not make this decision lightly. It is obvious that JavaScript is the industry standard for interactive websites. However, we believe that we will see better stability by supplanting its use via TypeScript.
 
@@ -428,7 +477,14 @@ Class components are the heavy lifters in the React framework and typically make
 
 \subsubsection*{How React Handles State}
 
-React handles state via prop objects. Props are arbitrary inputs that are passed to React components at run-time. The data contained within said props is the used to update the display to the end-user.
+React handles state via prop objects. Props are arbitrary inputs that are passed to React components at run-time. The data contained within said props is the used to update the display to the end-user. Figure \ref{fig:reactstateexample} demonstrates the unintuitive what that React handles state during the lifetime of its components. Yet, this way of handling state is what makes React so powerful.
+
+\begin{figure}[h]
+	\centering
+	\caption{React State Example}
+	\includegraphics[scale=0.5]{react_state_example}
+	\label{fig:reactstateexample}
+\end{figure}
 
 Props are read-only and cannot be directly modified. This invariant is not enforced by the library and must be strictly adhered to by the developer. Direct modifications to a prop can cause very strange behavior and possible bugs or even crashes. Instead of direct modification, props are updated via the \texttt{setState} method. This method is inherited from the \texttt{React.Component} super-class that all React components must inherit from. Utilizing \texttt{setState} instead of direct modification enables React to update the browser Document Object Model (DOM) lazily. This lazy update technique is at the core of what makes React a fast and efficient framework.
 
@@ -501,7 +557,7 @@ Displaying data as the first thing that one sees may be initially jarring to som
 \begin{figure}[h]
 	\centering
 	\caption{Mock-up of the Welcome Splash Screen}
-	\includegraphics[scale=0.33]{splash_screen_mockup}
+	\includegraphics[scale=0.5]{splash_screen_mockup}
 	\label{fig:splashscreenmockup}
 \end{figure}
 
@@ -511,7 +567,14 @@ Another section of the splash screen could display news about community outreach
 
 \subsubsection*{The File Browser}
 
-Once the user dismisses the splash screen, they are presented with the primary interface. As previously mentioned, Figure \ref{fig:frontendmockup} shows the general layout of the archive home page. The left-hand side of the page will display the the data which has been uploaded to the archive. Internally, we have been referring to this section as the \textit{file browser}. It will function similarly to a standard operating system file browser. However, it will be augmented with the capacity to sort and search based on the FITS file format metadata. Likewise, we want to be able to support custom tags which will simplify the process of working with the data during research.
+Once the user dismisses the splash screen, they are presented with the primary interface. As previously mentioned, Figure \ref{fig:frontendmockup} shows the general layout of the archive home page and figure \ref{fig:frontendfilebrowser} shows the file browser component of the main screen. The left-hand side of the page will display the the data which has been uploaded to the archive. Internally, we have been referring to this section as the \textit{file browser}. It will function similarly to a standard operating system file browser. However, it will be augmented with the capacity to sort and search based on the FITS file format metadata. Likewise, we want to be able to support custom tags which will simplify the process of working with the data during research.
+
+\begin{figure}[h]
+	\centering
+	\caption{The File Browser Component of the Main Screen}
+	\includegraphics[scale=0.5]{frontend_file_browser}
+	\label{fig:frontendfilebrowser}
+\end{figure}
 
 The file browser will need to be paginated due to the high likelihood that there will be a large number of files uploaded to the archive. Downloading an entire list during each visit would be unnecessarily bandwidth intensive. There are two approaches that we have considered and will need to be experimented with as we begin implementation. The first is a standard pager layout with arrows at the top/bottom of the file browser window. This will enable the end-user to move along as they exhaust their search. This approach is practical and familiar to the average user. Likewise, this is the strategy that Google utilizes for their search queries. (The fact that Google uses this for their interface is a good indication that we should utilize this approach.) Another alternative is to dynamically load new data as the user scrolls in an attempt to make the scrolling as seamless as possible. However, this strategy comes with a fair amount of additional technical requirements. The client must be able to detect which direction that a user is scrolling and dynamically cache the required information in the browser. This is a complex technique that would add a significant amount of difficulty to our implementation. However, if done properly, it would significantly increase the satisfaction and usability of our archive frontend. It would help to convince the end-user that the data is immediately available and it would help to reduce the perception that the data is stored on an external server. It is our belief that making the data seem like it is immediately available will increase the likelihood that a researcher would be satisfied while utilizing our archive. Any perceived delay might cause a potential user to manually cache the files that they are working with. We want to discourage such a practice by making our archive workflow as seamless as possible.
 
@@ -521,9 +584,20 @@ Navigation of the archive is only one aspect of the archive. The second and perh
 
 The first, and perhaps most obvious option for displaying the data, is to enable the end-user to navigate to a details page upon selection of an entry in the file browser. However, this strategy is somewhat counterproductive to our goal of simplifying the user's workflow. Switching context as one searches would interrupt one's thought process. It would be akin to going into another room when one turns the page in a book. Each file inspection would not only switch the context of the web-browser but also the context of the end-user's brain. There is a reason that integrated development environments (IDEs) have so many sub-views displayed on screen at the same time. Switching context inherently interrupts one's thought process. Another aspect to consider is the preservation of application state between context switching. As previously mentioned, we plan on utilizing React as our frontend framework. It is quite possible that, given React's nature as a "single-page frontend framework", we will have to implement some additional logic to ensure that the end-user is able to return to the exact scroll-position upon navigating back from the aforementioned context switch. This additional complexity might save memory on low end computers since we would be serializing the state to disk but this advantage seems somewhat negligible in the face of additional complex code requirements. Thus, this option is unappealing despite its conceptually simple nature.
 
-The second option that we explored for displaying the contents of each file is a always visible file preview sidebar. Figure \ref{fig:frontendmockup} demonstrates this design on the right side of the preview browser display. It is always visible and serves to display the contents about the currently selected file as one scrolls through all files in the archive. This approach ensures that the user's workflow is not interrupted by a switch in context. The pertinent data is always displayed on screen and so the user only needs to look to the side to determine if it is the file that they are looking for. The obvious downside to this approach is that screen real estate is always a concern when one is designing a user interface. Smaller screens will need to be able to display the maximum amount of data on the screen at a time. Likewise, this approach would severely hamper our ability to display the archive on mobile browsers. It is very likely that the file preview would come to dominate the entire screen on such devices. This would mean that our archive would either be unsuitable for mobile devices (an unattractive proposition since one of our stated goals is accessibility) or we would need to adapt our design to remove the preview sidebar when it detects a small display. The latter is an attractive option and would been potentially easy to implement. However, a loss of functionality, no matter how necessary, is something to be lamented. Yet trade-offs must be made and we suspect that mobile users are willing to accept said trade-offs provided that they have access to the requisite data. Thus, the file preview sidebar is a very attractive option for our purposes.
+The second option that we explored for displaying the contents of each file is a always visible file preview sidebar. Figure \ref{fig:frontendfilepreview} demonstrates this design of the preview browser display. It is always visible and serves to display the contents about the currently selected file as one scrolls through all files in the archive. This approach ensures that the user's workflow is not interrupted by a switch in context. The pertinent data is always displayed on screen and so the user only needs to look to the side to determine if it is the file that they are looking for. The obvious downside to this approach is that screen real estate is always a concern when one is designing a user interface. Smaller screens will need to be able to display the maximum amount of data on the screen at a time. Likewise, this approach would severely hamper our ability to display the archive on mobile browsers. It is very likely that the file preview would come to dominate the entire screen on such devices. This would mean that our archive would either be unsuitable for mobile devices (an unattractive proposition since one of our stated goals is accessibility) or we would need to adapt our design to remove the preview sidebar when it detects a small display. The latter is an attractive option and would been potentially easy to implement. However, a loss of functionality, no matter how necessary, is something to be lamented. Yet trade-offs must be made and we suspect that mobile users are willing to accept said trade-offs provided that they have access to the requisite data. Thus, the file preview sidebar is a very attractive option for our purposes.
 
-The final option that our team has explored is a floating detail display view. Figure \ref{fig:frontendfloating} demonstrates this alternative layout as a modification on Figure \ref{fig:frontendmockup}. This option is something of a middle ground between the two prior options. Upon selecting a file to preview. The floating view would be presented to the user in the foreground of the current display. Elements from the active file browser would still be visible but partially obscured by the floating view. This would mean that current context would not be entirely lost by navigating to a new page entirely. Likewise, as previously mentioned, the end-users brain context would not be completely lost by a complete swap in visual information. The new information would be "anchored" by the prior view in the background. The extra screen real estate taken up by the floating view would mean that would be able to display more of the data's metadata on screen at a time. This would reduce the need for a scroll-bar attached to the metadata section. It is still possible that one will be required depending on the quantity of metadata present. However, displaying more at a time would imply that the user could find what they are looking for more quickly. In total, this display strategy would hopefully mean that the inspection of files would be a rapid process and that the archive's usability would be greatly augmented by utilizing this strategy.
+\begin{figure}[h]
+	\centering
+	\caption{The File Preview Component of the Main Screen}
+	\includegraphics[scale=0.5]{frontend_file_preview}
+	\label{fig:frontendfilepreview}
+\end{figure}
+
+The final option that our team has explored is a floating detail display view. Figure \ref{fig:frontendfloating} demonstrates this alternative layout as a modification on Figure \ref{fig:frontendmockup}. This option is something of a middle ground between the two prior options.
+
+Upon selecting a file to preview. The floating view would be presented to the user in the foreground of the current display. Elements from the active file browser would still be visible but partially obscured by the floating view. This would mean that current context would not be entirely lost by navigating to a new page entirely. Likewise, as previously mentioned, the end-users brain context would not be completely lost by a complete swap in visual information. 
+
+The new information would be "anchored" by the prior view in the background. The extra screen real estate taken up by the floating view would mean that would be able to display more of the data's metadata on screen at a time. This would reduce the need for a scroll-bar attached to the metadata section. It is still possible that one will be required depending on the quantity of metadata present. However, displaying more at a time would imply that the user could find what they are looking for more quickly. In total, this display strategy would hopefully mean that the inspection of files would be a rapid process and that the archive's usability would be greatly augmented by utilizing this strategy.
 
 \begin{figure}[h]
 	\centering
@@ -531,6 +605,8 @@ The final option that our team has explored is a floating detail display view. F
 	\includegraphics[width=\linewidth]{frontend_floating}
 	\label{fig:frontendfloating}
 \end{figure}
+
+The display technique is familiar to most modern users. Many modern websites and native applications utilize floating windows to great effect. Likewise, floating components have become a vital part of mobile applications. Thus, users have been trained to understand how this kind of display component behaves.
 
 \section*{Database Research}
 
