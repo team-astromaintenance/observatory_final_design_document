@@ -852,7 +852,7 @@ Communication between the website and the database will be handled through the b
 
 \subsubsection*{Login}
 
-The login page will grant access to the website and the features included.  The user will be required to input their username and password which will be verified against the hashed password saved to the database.  If the username and password match to the values stored on the database, then the user will be logged in.
+The login page will grant access to the website and the features included.  The user will be required to input their username and password which will be verified against the hashed password saved to the database.  The bcrypt library will be utilized for hashing and comparing passwords for the security of users.  If the username and password match to the values stored on the database, then the user will be logged in.  With an account a general user will gain access to being able to favorite images viewable within the web application.  Users will be able to view each other’s favorite image galleries to form a sense of community amongst fans of the observatory to share images they find exciting or unique.
 
 \subsubsection*{Register}
 \subsubsection*{Search}
