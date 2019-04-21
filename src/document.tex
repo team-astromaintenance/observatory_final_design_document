@@ -885,7 +885,14 @@ The search functionality will be based on tags and return images with the matchi
 
 \subsubsection*{Edit Metadata}
 
+Editing metadata when required will be a key feature for the administrator level accounts.  In case any of the pre-filled metadata is incorrect or solicits corrections, this API call will make the changes based on the user requirements.  The user will be shown the metadata of the image when they want to edit and be presented with all the fields as they are in the table.  They will make their changes and save their edits which will be inserted into the table.  The query will update the metadata table by setting all values changed where the matching meta ID is.  This will minimize changes to the table by only affecting the fields that were edited.  Below is an example where the publisher is edited to the image where the meta ID is 1.
 
+\begin{figure}[h]
+	\centering
+	\caption{API Example of Edit Metadata}
+	\includegraphics[scale=0.5]{api_edit_metadata}
+	\label{fig:API Edit Metadata}
+\end{figure}
 
 \subsubsection*{Favorite}
 
