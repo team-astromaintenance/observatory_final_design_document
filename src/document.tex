@@ -718,7 +718,7 @@ Express is a lightweight web application framework for Node.  Express is known f
 
 \subsection*{ASP.NET}
 
-ASP.NET is a combination of Active Server Pages (ASP) and .Net Framework.  ASP is Microsoft’s scripting engine for dynamic web pages and .NET is the software that enables use of ASP.  ASP.NET is part of the WISA stack.  The closed source aspect of being a Microsoft product can be a drawback.  WISA stacks and the prices associated seem to be mainly targeting enterprise level websites however when using WISA stacks, all levels of the stack can be handled by Microsoft support which would smooth any issues with the web application.  The Visual Studio IDE also assist in the web development step with the various features available with the C# language. 
+ASP.NET is a combination of Active Server Pages (ASP) and .Net Framework.  ASP is Microsoft’s scripting engine for dynamic web pages and .NET is the software that enables use of ASP.  ASP.NET is part of the WISA stack.  The closed source aspect of being a Microsoft product can be a drawback.  WISA stacks and the prices associated seem to be mainly targeting enterprise level websites however when using WISA stacks, all levels of the stack can be handled by Microsoft support which would smooth any issues with the web application.  The Visual Studio IDE also assist in the web development step with the various features available with the C\# language. 
 
 \begin{figure}[h]
 	\centering
@@ -855,13 +855,20 @@ Communication between the website and the database will be handled through the b
 
 \subsubsection*{Register}
 
-Account creation will allow users to join the community and view and favorites images that they enjoy.  The process will require some personal information from the user for account security.  The sign-up process will require the user’s full name, an email, and a unique username with a secure password.  The password will be stored hashed with the bcrypt algorithm and functions to protect account security.  Below is an example query without password encryption and raw values.  All the values of the users table will be generated based on user inputs to create an account.  A row will be generated within the table on the database and their account will be created and ready to be used.
+Account creation will allow users to join the community and view and favorites images that they enjoy.  The process will require some personal information from the user for account security.  The sign-up process will require the user’s full name, an email, and a unique username with a secure password.  The password will be stored hashed with the bcrypt algorithm and functions to protect account security.  Below is an example query without password encryption and raw values alongside the user within the users table of the database.  All the values of the users table will be generated based on user inputs to create an account.  A row will be generated within the table on the database and their account will be created and ready to be used. 
 
 \begin{figure}[h]
 	\centering
 	\caption{API Example of Account Creation}
 	\includegraphics[width=\linewidth]{api_raw_register}
 	\label{fig:API Register}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\caption{User created on database}
+	\includegraphics[width=\linewidth]{database_user}
+	\label{fig:Database User}
 \end{figure}
 
 \subsubsection*{Login}
@@ -897,15 +904,38 @@ Editing metadata when required will be a key feature for the administrator level
 	\label{fig:API Edit Metadata}
 \end{figure}
 
-\subsubsection*{Favorite}
+\subsubsection*{Add Favorite}
 
-\subsubsection*{Remove From Favorites}
+Adding favorites will allow users to collect the images they find interesting or exciting and share these specified images with others.  When adding an image to their favorites, a user will have the image ID added to their favorite column.  This will associate the image to the user and will be displayed on the user’s gallery of favorites.  The query will add the image ID to the favorites and create the association of the user and favorited image.  Below is an example of the add favorite query with fixed values.  A process to remove favorites will also be implemented for user functionality.
 
-\subsubsection*{Add Tag}
+\begin{figure}[h]
+	\centering
+	\caption{API Example of Add Favorite}
+	\includegraphics[scale=0.5]{api_add_favorite}
+	\label{fig:API Add Favorite}
+\end{figure}
 
-\subsubsection*{Remove Tag}
+\subsubsection*{Set Tags}
 
+Tags offer a useful functionality by allowing users, whether general or administrative, to create custom ways to identify an image.  The search functionality of the website will utilize these tags when searching the database in order to identify images.  Accurate and functional tags will be an important part of the functionality of the web application and the backend.  The query will function by updating the image table and setting the tags to the specified input by the user.  A process to remove tags will also be made available in case of inaccurate or malicious tagging of images occur.  Below is an example of the create tag functionality for images with fixed inputs.
 
+\begin{figure}[h]
+	\centering
+	\caption{API Example of Set Tags}
+	\includegraphics[scale=0.5]{api_create_tags}
+	\label{fig:API Set Tags}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.251\linewidth]{react_node}
+\end{figure}
+
+\subsection*{Archive Backend \& Frontend Communication}
+
+The frontend and backend are two components of the web application that must communicate properly in order for the web application to function correctly.  The frontend specifies the user experience within the browser which will be handle by react.  The backend will interact with the database with requests from the frontend in order to manage data and either update the database or display data from the database.
+The React frontend of the web application will utilize states to capture API responses and implement the required data to the user experience or ensure the correct data is sent to the backend and the database.  A react frontend will run alongside express with the use of routers functionality to share data between the react frontend and node/express backend.
+The Node/Express backend of the web application will utilize SQL queries to make the changes to the database or display the requested information to the frontend.
 
 \section*{Model Telescope Control}
 
