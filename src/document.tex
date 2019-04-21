@@ -856,7 +856,7 @@ Account creation will allow users to join the community and view and favorites i
 
 \begin{figure}[h]
 	\centering
-	\caption{SQL Example of Account creation}
+	\caption{API Example of Account Creation}
 	\includegraphics[width=\linewidth]{api_raw_register}
 	\label{fig:API Register}
 \end{figure}
@@ -868,15 +868,31 @@ The login page will grant access to the website and the features included.  The 
 \begin{figure}[h]
 	\centering
 	\caption{bcrypt Functions}
-	\includegraphics[width=\linewidth]{api_bcrypt}
+	\includegraphics[scale=0.5]{api_bcrypt}
 	\label{fig:API bcrypt}
 \end{figure}
 
 \subsubsection*{Search}
+
+The search functionality will be based on tags and return images with the matching tags.  The query will search for any tags that contain the requested value and return any matching rows within the image table.  The query will select any row from the images table where the search string is contained within the tags value of the table.  The values will then be ready as a json response for the frontend.  Below is an example query for the search functionality of the web application.
+
+\begin{figure}[h]
+	\centering
+	\caption{API Example of Search Function}
+	\includegraphics[scale=0.5]{api_search}
+	\label{fig:API Search}
+\end{figure}
+
 \subsubsection*{Edit Metadata}
+
+
+
 \subsubsection*{Favorite}
+
 \subsubsection*{Remove From Favorites}
+
 \subsubsection*{Add Tag}
+
 \subsubsection*{Remove Tag}
 
 
