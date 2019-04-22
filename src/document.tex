@@ -692,10 +692,10 @@ To provide the slew instructions for an object selected, we need to receive the 
 
 Now we can determine the exact movements the telescope needs to reach the coordinates. This requires us to convert the Stellarium strings for RA and DEC to degrees. The math is provided in the image below. Declination is pretty straight forward in conversion to degrees but right ascension requires the conversion to degrees than the multiplication by 15. This accounts for the fact the Earth moves about 360 degrees in 24 hours resulting in 15 degrees an hour. Furthermore for both conversions, minutes for RA and arcminutes for DEC are divided by 60 to account for 60 minutes in an hour. Next seconds  for RA and arcseconds for DEC are divided by 3600 to account for 60 seconds of 60 minutes in an hour. One last step for declination is applying the sign of the original coordinates given by Stellarium to the newly converted degrees. This only happens for declination because right ascension is always positive. Right ascension only ever calculates eastward. Declination can calculate both upwards and downwards relative to the celestial sphere.
 
-%\begin{figure}[h]
-%  \centering
-%  \includegraphics[width=\linewidth]{convMath}
-%\end{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{convMath}
+\end{figure}
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{convExample}
