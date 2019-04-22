@@ -559,8 +559,8 @@ The goal for the software development is provide a simple and easy to use interf
 
 \begin{figure}[h]
 	\centering
+	\includegraphics[width=0.75\linewidth]{stell}
 	\caption{Overview of Control Communications}
-	\includegraphics[width=1.0]{stell}
 \end{figure}
 
 \subsubsection*{Stellarium}
@@ -569,8 +569,8 @@ Stellarium is the first open source program we came across. Stellarium was a pro
 
 \begin{figure}[h]
 	\centering
+	\includegraphics[width=0.75\linewidth]{stell}
 	\caption{Stellarium main page}
-	\includegraphics[width=1.0]{stell}
 \end{figure}
 
 Stellarium at its core is used to show a 3D model of a realistic sky. You tell the software what you want to view and it creates a visual 3d output of the sky at that location. It is not a current view of that location. For this project though, we would need to push beyond this core use and use their telescope control feature that was implemented in version 0.10.5. The software plugin allows you to control a GOTO telescope from the Stellarium UI through some basic instructions. This feature sends movement commands to the telescope and receives the current position of the telescope. By no means does the plugin allow for broad control of a telescope like SkyX does, the software does provide the functionality we are looking for. Supervision will need to happen during telescope control though as warnings for slew commands are not currently implemented by Stellarium. The issue that arises is when a slew command has the inverse effect of causing the telescope to hit itself. The software does not know the limitation of the telescope so it always assumes the telescope can be slewed to any position. It is also important to note the telescope can end up being pointed at the Sun, which is dangerous to view at without the proper filters on a camera that is mounted on our model.
@@ -583,8 +583,8 @@ The next option available is Cartes du Ciel written by Patrick Chevalley (Cheval
 
 \begin{figure}[h]
 	\centering
+	\includegraphics[width=0.75\linewidth]{carte}
 	\caption{Carte du Ciel main page}
-	\includegraphics[width=1.0]{carte}
 \end{figure}
 
 Through the use of these charts, the software provides a vast library of objects to choose to slew a telescope to. To do so, the software can talk through the LX200 protocol like Stellarium. Furthermore, it supports INDI protocol for Mac and Linux while supporting ASCOM protocol for Windows. The ASCOM and INDI protocols are used to bridge the connection between control software and telescope. They are both open source frameworks designed specifically for the astronomy field. These protocols work through middleware causing the need for more software to be involved. The simplest option would to use the LX200 protocol to keep all operations within the software.
@@ -652,8 +652,8 @@ First Time Use Setup - The telescope needs to be configured within Stellarium.
 
 \begin{figure}[h]
 	\centering
+	\includegraphics[width=0.75\linewidth]{stellTeleWindow}
 	\caption{Stellarium Telescope Control Window}
-	\includegraphics[width=1.0]{stellTeleWindow}
 \end{figure}
 
   5. Ensure “Load at startup” is selected at the bottom on the window and Select “Configure” next to it.
@@ -665,8 +665,8 @@ First Time Use Setup - The telescope needs to be configured within Stellarium.
 
 \begin{figure}[h]
 	\centering
+	\includegraphics[width=0.75\linewidth]{stellConfig}
 	\caption{Stellarium Telescope Configuration}
-	\includegraphics[width=1.0]{stellConfig}
 \end{figure}
 
 Each Subsequent Use Setup: Ensure Stellarium recognizes the connection to your telescope by visiting the configurations menu again.
@@ -685,8 +685,8 @@ Since the sky is constantly moving, astronomers formulated coordinates to use fo
 
 \begin{figure}[h]
   \centering
+  \includegraphics[width=\linewidth]{convStell}
   \caption{Coordinates genreated by Stellarium}
-  \includegraphics[width=1.0]{convStell}
 \end{figure}
 
 The tricky part of celestial coordinates are they are constantly changing because the celestial coordinates are directly impacted by the orientation of the Earth. An orientation that goes through 26,000 year cycles. With this constant change, coordinates are derived from the current epoch or through the equinox of the date. An epoch is reference point used for a moment in time (reference). We are currently in J2000 with the next update coming in 2050. It is important to note Stellarium lets us decide what reference of time we will use for object locations. If the system is ever changed in the settings, the telescope should be immediately recalibrated or the telescope will not point to the correct location. With this dependency with time, a real time clock needs to be in use when coordinates are formulated along with slew commands. This requires all conversions to be handled within Stellarium and not the Arduino board. The board has no room to hold the micro controller needed for a real time clock.
@@ -699,14 +699,14 @@ First off, it will be important to calibrate the telescope so that the home posi
 
 To provide the slew instructions for an object selected, we need to receive the current degree placements of both motors from the Arduino board. These readings sent from the Arduino board will tell the change from the standard home position of the telescope instead of the telescope’s actual location. So first, we will need to take the readings from home position and compare them to the standard home position. This will give us the current viewing location of the telescope. Then from that position, we can take the difference between the telescope position and the current object to be tracked position to provide the correct instructions. This requires us to convert the Stellarium strings for RA and DEC to degrees. The math is provided in the image below. Declination is pretty straight forward in conversion to degrees but right ascension requires the conversion to degrees than the multiplication by 15. This accounts for the fact the Earth moves about 360 degrees in 24 hours resulting in 15 degrees an hour. Furthermore for both conversions, minutes for RA and arcminutes for DEC are divided by 60 to account for 60 minutes in an hour. Next seconds  for RA and arcseconds for DEC are divided by 3600 to account for 60 seconds of 60 minutes in an hour. One last step for declination is applying the sign of the original coordinates given by Stellarium to the newly converted degrees. This only happens for declination because right ascension is always positive. Right ascension only ever calculates eastward. Declination can calculate both upwards and downwards relative to the celestial sphere.
 
+%\begin{figure}[h]
+%  \centering
+%  \includegraphics[width=\linewidth]{convMath}
+%\end{figure}
 \begin{figure}[h]
   \centering
-  \includegraphics[width=1.0]{convMath}
-\end{figure}
-\begin{figure}[h]
-  \centering
+  \includegraphics[width=\linewidth]{convExample}
   \caption{First image shows formulas, Second image provides example of process}
-  \includegraphics[width=1.0]{convExample}
 \end{figure}
 
 \subsubsection*{Meridian Flip}
@@ -719,22 +719,26 @@ When the telescope passes this circle in the celestial sphere, a reorientation n
 
 A meridian flip is unique to each telescope as the dimensions of telescopes are different so there is not a standard where your telescope will collide with itself at a certain position past the meridian. This limit will need to be researched once our telescope is built. If a slew will cause the telescope to travel past the limit we define, we will reorientate the telescope so further tracking of the object is possible.
 
+\clearpage
+
 \begin{figure}[h]
   \centering
-  \includegraphics[width=1.0]{beforeflip}
+   
+  \includegraphics[width=0.6\linewidth]{beforeflip}
 \end{figure}
+
 \begin{figure}[h]
   \centering
-  \caption{First image on left is start of tracking. Second image on right shows tracking after flip.}
-  \includegraphics[width=1.0]{afterflip}
+  \includegraphics[width=0.6\linewidth]{afterflip}
+   \caption{First image on left is start of tracking. Second image on right shows tracking after flip.}
 \end{figure}
 
 To help give a visual idea of the meridian flip, three images are supplied below. The object being tracked started to the east of the meridian and moves westward while remaining at a DEC of 0 degrees. As the telescope tracks westward, the first image shows the end of the telescope would hit the mount if the telescope stayed on its current course. To avoid this, we would send to the Arduino to start rotating the RA motor counterclockwise from its current location while the DEC motor rotates 180 degrees clockwise. This flip is shown in image two. The telescope will not end up pointing to a new location. Rather the mix of these movements will result in flip over the ‘y’ axis of the mount as shown in the third image. The DEC motor will once again be pointed to 0 degrees while the RA motor will be pointed to the same degree it had before the flip but can now keep tracking westward.
 
 \begin{figure}[h]
   \centering
+  \includegraphics[width=0.6\linewidth]{duringflip}
   \caption{Telescope while performing meridian flip.}
-  \includegraphics[width=1.0]{duringflip}
 \end{figure}
 
 What does this mean for our communications between Stellarium and the Arduino? If the flip happens during the tracking of an object, tracking must halt and the end coordinates need to be saved while the flip occurs. We will take control of the telescope while the flip happens thus the coordinates need to be saved so we can reinitialize the slew after the flip has been processed. This will be implemented so our flip commands and slew commands do not tamper with each other. The strings outputted by the meridian flip will not be telling the telescope about a new point in the sky and thus will be the same no matter where the flip occurs. The DEC motor will rotate 180 degrees and then the RA motor will rotate counterclockwise until the original DEC location is achieved. Next, Stellarium will need to take in a new command outside the LX200 protocol for a manual annual meridian flip initialized by a button on the telescope. This command will call the same meridian flip function as used during object tracking but our software would not have known the need to do so without the command from the Arduino.
@@ -749,8 +753,8 @@ Figure \ref{fig:archiveusecase} shows a high level overview of the archive front
 
 \begin{figure}[h]
 	\centering
-	\caption{Archive Frontend Use-Case}
 	\includegraphics[width=0.75\linewidth]{frontend_use_case}
+	\caption{Archive Frontend Use-Case}
 	\label{fig:archiveusecase}
 \end{figure}
 
@@ -916,8 +920,8 @@ React integrates extremely well with TypeScript. The TypeScript website has a se
 
 \begin{figure}[h]
 	\centering
-	\caption{React TypeScript Example}
 	\includegraphics[scale=0.5]{react_typescript_example}
+	\caption{React TypeScript Example}
 	\label{fig:reacttypescriptexample}
 \end{figure}
 
@@ -937,8 +941,8 @@ Functional components are a good way of structuring simple components. They fit 
 
 \begin{figure}[h]
 	\centering
-	\caption{React Functional Component}
 	\includegraphics[scale=0.5]{react_functional_component}
+	\caption{React Functional Component}
 	\label{fig:reactfunctionalcomponent}
 \end{figure}
 
@@ -946,8 +950,8 @@ Class components are the heavy lifters in the React framework and typically make
 
 \begin{figure}[h]
 	\centering
-	\caption{React Functional Component}
 	\includegraphics[scale=0.5]{react_class_component}
+	\caption{React Functional Component}
 	\label{fig:reactclasscomponent}
 \end{figure}
 
@@ -957,8 +961,8 @@ React handles state via prop objects. Props are arbitrary inputs that are passed
 
 \begin{figure}[h]
 	\centering
-	\caption{React State Example}
 	\includegraphics[scale=0.5]{react_state_example}
+	\caption{React State Example}
 	\label{fig:reactstateexample}
 \end{figure}
 
@@ -978,8 +982,8 @@ Utilizing plain JavaScript for HTTP requests cannot be overlooked. Our project w
 
 \begin{figure}[h]
 	\centering
-	\caption{Plain JavaScript HTTP Request}
 	\includegraphics[scale=0.5]{javascript_http_request}
+	\caption{Plain JavaScript HTTP Request}
 	\label{fig:javascripthttprequest}
 \end{figure}
 
@@ -987,8 +991,8 @@ Request is a popular JavaScript library for handling HTTP requests in a simplifi
 
 \begin{figure}[h]
 	\centering
-	\caption{An Example of the Axios Library Usage}
 	\includegraphics[scale=0.5]{axios_example}
+	\caption{An Example of the Axios Library Usage}
 	\label{fig:axiosexample}
 \end{figure}
 
@@ -1004,8 +1008,8 @@ Figure \ref{fig:frontendmockup} shows a mock-up of the archive's homepage. It wi
 
 \begin{figure}[h]
 	\centering
-	\caption{Mock-up of the Primary Frontend Homepage}
 	\includegraphics[width=\linewidth]{frontend_mockup}
+	\caption{Mock-up of the Primary Frontend Homepage}
 	\label{fig:frontendmockup}
 \end{figure}
 
@@ -1017,8 +1021,8 @@ Figure \ref{fig:loginmockup} shows our idea for a login prompt. It is minimalist
 
 \begin{figure}[h]
 	\centering
-	\caption{Login Mock-up}
 	\includegraphics[width=\linewidth]{login}
+	\caption{Login Mock-up}
 	\label{fig:loginmockup}
 \end{figure}
 
@@ -1032,8 +1036,8 @@ Displaying data as the first thing that one sees may be initially jarring to som
 
 \begin{figure}[h]
 	\centering
-	\caption{Mock-up of the Welcome Splash Screen}
 	\includegraphics[scale=0.5]{splash_screen_mockup}
+	\caption{Mock-up of the Welcome Splash Screen}
 	\label{fig:splashscreenmockup}
 \end{figure}
 
@@ -1047,8 +1051,8 @@ Once the user dismisses the splash screen, they are presented with the primary i
 
 \begin{figure}[h]
 	\centering
-	\caption{The File Browser Component of the Main Screen}
 	\includegraphics[scale=0.5]{frontend_file_browser}
+	\caption{The File Browser Component of the Main Screen}
 	\label{fig:frontendfilebrowser}
 \end{figure}
 
@@ -1064,8 +1068,8 @@ The second option that we explored for displaying the contents of each file is a
 
 \begin{figure}[h]
 	\centering
-	\caption{The File Preview Component of the Main Screen}
 	\includegraphics[scale=0.5]{frontend_file_preview}
+	\caption{The File Preview Component of the Main Screen}
 	\label{fig:frontendfilepreview}
 \end{figure}
 
@@ -1077,8 +1081,8 @@ The new information would be "anchored" by the prior view in the background. The
 
 \begin{figure}[h]
 	\centering
-	\caption{An Alternative Mock-up of the Primary Frontend Homepage}
 	\includegraphics[width=\linewidth]{frontend_floating}
+	\caption{An Alternative Mock-up of the Primary Frontend Homepage}
 	\label{fig:frontendfloating}
 \end{figure}
 
@@ -1234,8 +1238,8 @@ Below is an entity relationship diagram for our database which shows the associa
 
 \begin{figure}[h]
 	\centering
-	\caption{An Entity Relationship Diagram of the Database}
 	\includegraphics[width=\linewidth]{database}
+	\caption{An Entity Relationship Diagram of the Database}
 	\label{fig:ERD}
 \end{figure}
 
@@ -1257,8 +1261,8 @@ Below is an example of the SQL for the users table.
 
 \begin{figure}[h]
 	\centering
-	\caption{SQL Example of the Users Table}
 	\includegraphics[width=\linewidth]{database_user_table}
+	\caption{SQL Example of the Users Table}
 	\label{fig:SQL Users Table}
 \end{figure}
 
@@ -1268,8 +1272,8 @@ The images table will associate images to their metadata and users can associate
 
 \begin{figure}[h]
 	\centering
-	\caption{SQL Example of the Images Table}
 	\includegraphics[width=\linewidth]{database_images_table}
+	\caption{SQL Example of the Images Table}
 	\label{fig:SQL Images Table}
 \end{figure}
 
@@ -1279,8 +1283,8 @@ The metadata table will associate metadata with their respective image.  The rel
 
 \begin{figure}[h]
 	\centering
-	\caption{SQL Example of the Metadata Table}
 	\includegraphics[width=\linewidth]{database_metadata_table}
+	\caption{SQL Example of the Metadata Table}
 	\label{fig:SQL Metadata Table}
 \end{figure}
 
@@ -1294,8 +1298,8 @@ The image below contains the AVM standard with format type and examples.
 
 \begin{figure}[h]
 	\centering
-	\caption{AVM Tags Standard with Examples}
 	\includegraphics[width=\linewidth]{avm_standards}
+	\caption{AVM Tags Standard with Examples}
 	\label{fig:AVM Standards}
 \end{figure}
 
@@ -1322,8 +1326,8 @@ The next steps will involve creating the web application involving Node.js along
 
 \begin{figure}[h]
 	\centering
-	\caption{PostgreSQL Database Connection}
 	\includegraphics[scale=0.5]{database_connection}
+	\caption{PostgreSQL Database Connection}
 	\label{fig:javascripthttprequest}
 \end{figure}
 
@@ -1337,26 +1341,26 @@ Account creation will allow users to join the community and view and favorites i
 
 \begin{figure}[h]
 	\centering
-	\caption{API Example of Account Creation}
 	\includegraphics[width=\linewidth]{api_raw_register}
+	\caption{API Example of Account Creation}
 	\label{fig:API Register}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
-	\caption{User created on database}
 	\includegraphics[width=\linewidth]{database_user}
+	\caption{User created on database}
 	\label{fig:Database User}
 \end{figure}
 
 \subsubsection*{Login}
-
+5
 The login page will grant access to the website and the features included.  The user will be required to input their username and password which will be verified against the hashed password saved to the database.  The bcrypt library will be utilized for hashing and comparing passwords for the security of users.  If the username and password match to the values stored on the database, then the user will be logged in.  With an account a general user will gain access to being able to favorite images viewable within the web application.  Users will be able to view each other’s favorite image galleries to form a sense of community amongst fans of the observatory to share images they find exciting or unique.  Below is an example of the bcrypt hash and compare functionality.
 
 \begin{figure}[h]
 	\centering
-	\caption{bcrypt Functions}
 	\includegraphics[scale=0.5]{api_bcrypt}
+	\caption{bcrypt Functions}
 	\label{fig:API bcrypt}
 \end{figure}
 
@@ -1366,8 +1370,8 @@ The search functionality will be based on tags and return images with the matchi
 
 \begin{figure}[h]
 	\centering
-	\caption{API Example of Search Function}
 	\includegraphics[scale=0.5]{api_search}
+	\caption{API Example of Search Function}
 	\label{fig:API Search}
 \end{figure}
 
@@ -1377,8 +1381,8 @@ Editing metadata when required will be a key feature for the administrator level
 
 \begin{figure}[h]
 	\centering
-	\caption{API Example of Edit Metadata}
 	\includegraphics[scale=0.5]{api_edit_metadata}
+	\caption{API Example of Edit Metadata}
 	\label{fig:API Edit Metadata}
 \end{figure}
 
@@ -1388,8 +1392,8 @@ Adding favorites will allow users to collect the images they find interesting or
 
 \begin{figure}[h]
 	\centering
-	\caption{API Example of Add Favorite}
 	\includegraphics[scale=0.5]{api_add_favorite}
+	\caption{API Example of Add Favorite}
 	\label{fig:API Add Favorite}
 \end{figure}
 
@@ -1399,8 +1403,8 @@ Tags offer a useful functionality by allowing users, whether general or administ
 
 \begin{figure}[h]
 	\centering
-	\caption{API Example of Set Tags}
 	\includegraphics[scale=0.5]{api_create_tags}
+	\caption{API Example of Set Tags}
 	\label{fig:API Set Tags}
 \end{figure}
 
@@ -1427,29 +1431,16 @@ Finally, the observatory has a server they want reinstated. The server was used 
 
 The observatory team also asked for a few more upgrades that wouldn’t be feasible for our project as they require the telescope to be in operation. They wanted scripting capabilities for their SkyX software used in controlling the telescope. This is a feature we can work into our scale model system though. Scripting is available in Stellarium as a plugin option and we can test scripting through tracking objects and viewing image data afterwards. Image data from the GoPro provides accurate timestamps allowing for precise review of the scripting success of our program(s). Our scale model will not run with SkyX but we can provide a possible overview into how it could work. They also wanted an update in the time given to the telescope picture’s metadata. It currently is given the wrong time but we have no way of producing a similar experience without the telescope working.
 
+\clearpage
+
 \section{Administrative content}
 
 \subsection*{Budget}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1.0]{budgettable}
+	\includegraphics[width=\linewidth]{budgettable}
 \end{figure}
-
-\subsubsection*{Software}
-The SkyX Professional Access: \$349.00 - Already Downloaded\\
-Windows 10: \$140
-
-\subsubsection*{Web \& App Development}
-Web Server Hosting - AWS - use of student credits and free tier limits negate cost\\
-Database - AWS - use of student credits and free tier limits negate cost
-
-\subsubsection*{Physical Hardware}
-
-Data storage cost for backing up the disk image - FSI provided hard drive\\
-Physical Server - Observatory already has server
-
-\newpage
 
 \section*{Project Milestones SD1}
 
@@ -1457,6 +1448,8 @@ Physical Server - Observatory already has server
 	\centering
 	\includegraphics[width=\linewidth]{SD1Gantt}
 \end{figure}
+
+\newpage
 
 \begin{figure}[h]
 	\centering
