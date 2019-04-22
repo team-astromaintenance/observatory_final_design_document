@@ -743,7 +743,7 @@ To help give a visual idea of the meridian flip, three images are supplied below
 
 What does this mean for our communications between Stellarium and the Arduino? If the flip happens during the tracking of an object, tracking must halt and the end coordinates need to be saved while the flip occurs. We will take control of the telescope while the flip happens thus the coordinates need to be saved so we can reinitialize the slew after the flip has been processed. This will be implemented so our flip commands and slew commands do not tamper with each other. The strings outputted by the meridian flip will not be telling the telescope about a new point in the sky and thus will be the same no matter where the flip occurs. The DEC motor will rotate 180 degrees and then the RA motor will rotate counterclockwise until the original DEC location is achieved. Next, Stellarium will need to take in a new command outside the LX200 protocol for a manual annual meridian flip initialized by a button on the telescope. This command will call the same meridian flip function as used during object tracking but our software would not have known the need to do so without the command from the Arduino.
 
-
+\newpage
 
 \section*{Archive Frontend}
 
@@ -831,8 +831,6 @@ React is a single-page web application framework. It enables the developer to dy
 Components are React's way of splitting your application into reusable pieces. Likewise, Components determine how one structures the data on the user's end. React components "[take] in parameters...and [they return] a hierarchy of views to display."\cite{reacttutorial} The data is tightly coupled to the visual model. React's opinionated nature is ideal for our inexperienced developers. A framework like React that provides not only the tools for creating the UI we need but also provides structural guidance is an advantage over the other options available.
 
 React's structure and idioms are a good contender for implementation in our project. The single-page nature of React makes it ideal for places with low-bandwidth connections such as observatories. Likewise, the tight coupling of data and view provides a good starting point for structuring our code. Finally, React is widely used in the industry and so it would be an advantage for our team to gain experience using it.
-
-\newpage
 
 \begin{figure}[h]
 	\centering
@@ -941,7 +939,7 @@ Functional components are a good way of structuring simple components. They fit 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{react_functional_component}
+	\includegraphics[scale=0.7]{react_functional_component}
 	\caption{React Functional Component}
 	\label{fig:reactfunctionalcomponent}
 \end{figure}
@@ -950,7 +948,7 @@ Class components are the heavy lifters in the React framework and typically make
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{react_class_component}
+	\includegraphics[scale=0.7]{react_class_component}
 	\caption{React Functional Component}
 	\label{fig:reactclasscomponent}
 \end{figure}
@@ -982,7 +980,7 @@ Utilizing plain JavaScript for HTTP requests cannot be overlooked. Our project w
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{javascript_http_request}
+	\includegraphics[scale=0.7]{javascript_http_request}
 	\caption{Plain JavaScript HTTP Request}
 	\label{fig:javascripthttprequest}
 \end{figure}
@@ -991,7 +989,7 @@ Request is a popular JavaScript library for handling HTTP requests in a simplifi
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{axios_example}
+	\includegraphics[scale=0.7]{axios_example}
 	\caption{An Example of the Axios Library Usage}
 	\label{fig:axiosexample}
 \end{figure}
@@ -1051,7 +1049,7 @@ Once the user dismisses the splash screen, they are presented with the primary i
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{frontend_file_browser}
+	\includegraphics[scale=0.6]{frontend_file_browser}
 	\caption{The File Browser Component of the Main Screen}
 	\label{fig:frontendfilebrowser}
 \end{figure}
