@@ -82,7 +82,9 @@ I remember one of my most favorite experiences from my first years at college wa
 
 \subsubsection*{Derek McCrae}
 
-I want to embark on this project primarily for my interest in space. Growing up near the Kennedy Space Center, I was viewing the shuttle launches from a young age and dreamed upon what is out there. A sight I will always want to see firsthand has been strengthened by the pictures provided by telescopes. Telescopes provide a great photos of our universe that can't be currently reached by humans like the Hubble Telescope showcasing the Pillars of Creation or a simple home telescope to view Jupiter. This passion that has grown stronger with the advancements being made for commercial trips to space, especially the advancements by SpaceX. The technological advancements SpaceX has made with getting their boosters to land safely back at a landing pad simultaneously is one of the coolest things I have seen in the last decade. SpaceX along with Virgin Galactic have brought excitement back to space exploration. Some great memories I have include watch parties that had telescope viewings of either a launch, or eclipse, or viewing of another planet.
+I want to embark on this project primarily for my interest in space. Growing up near the Kennedy Space Center, I was viewing the shuttle launches from a young age and dreamed upon what is out there. A sight I will always want to see firsthand has been strengthened by the pictures provided by telescopes. Telescopes provide a great photos of our universe that can't be currently reached by humans like the Hubble Telescope showcasing the Pillars of Creation or a simple home telescope to view Jupiter.
+
+This passion that has grown stronger with the advancements being made for commercial trips to space, especially the advancements by SpaceX. The technological advancements SpaceX has made with getting their boosters to land safely back at a landing pad simultaneously is one of the coolest things I have seen in the last decade. SpaceX along with Virgin Galactic have brought excitement back to space exploration. Some great memories I have include watch parties that had telescope viewings of either a launch, or eclipse, or viewing of another planet.
 
 I had two events that greatly enhanced my passion for space. The first one happened when I was in 7th grade and our class trip was to the Kennedy Space Center. We were able to tour the facilities and sleep under one of the rockets that had on display. The trip helped gain new knowledge and greater appreciation of space. The second event happened freshman summer of high school on a trip to North Carolina. I was family on the side of a mountain in some cabins. One night the mountain staff held a viewing party. My family along with other guests were able to view the stars and use a telescope to see planets only viewable at that time of the year. The event showed me how the topic of space can bring people together.
 
@@ -538,8 +540,9 @@ The goal for the software development is provide a simple and easy to use interf
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.75\linewidth]{stell}
+	\includegraphics[width=0.75\linewidth]{techOver}
 	\caption{Overview of Control Communications}
+  \label{fig:techOver}
 \end{figure}
 
 \subsubsection*{Stellarium}
@@ -550,6 +553,7 @@ Stellarium is the first open source program we came across. Stellarium was a pro
 	\centering
 	\includegraphics[width=0.75\linewidth]{stell}
 	\caption{Stellarium main page}
+  \label{fig:stell}
 \end{figure}
 
 Stellarium at its core is used to show a 3D model of a realistic sky. You tell the software what you want to view and it creates a visual 3d output of the sky at that location. It is not a current view of that location. For this project though, we would need to push beyond this core use and use their telescope control feature that was implemented in version 0.10.5. The software plugin allows you to control a GOTO telescope from the Stellarium UI through some basic instructions. This feature sends movement commands to the telescope and receives the current position of the telescope. By no means does the plugin allow for broad control of a telescope like SkyX does, the software does provide the functionality we are looking for. Supervision will need to happen during telescope control though as warnings for slew commands are not currently implemented by Stellarium. The issue that arises is when a slew command has the inverse effect of causing the telescope to hit itself. The software does not know the limitation of the telescope so it always assumes the telescope can be slewed to any position. It is also important to note the telescope can end up being pointed at the Sun, which is dangerous to view at without the proper filters on a camera that is mounted on our model.
@@ -564,6 +568,7 @@ The next option available is Cartes du Ciel written by Patrick Chevalley \cite{s
 	\centering
 	\includegraphics[width=0.75\linewidth]{carte}
 	\caption{Carte du Ciel main page}
+  \label{fig:carte}
 \end{figure}
 
 Through the use of these charts, the software provides a vast library of objects to choose to slew a telescope to. To do so, the software can talk through the LX200 protocol like Stellarium. Furthermore, it supports INDI protocol for Mac and Linux while supporting ASCOM protocol for Windows. The ASCOM and INDI protocols are used to bridge the connection between control software and telescope. They are both open source frameworks designed specifically for the astronomy field. These protocols work through middleware causing the need for more software to be involved. The simplest option would to use the LX200 protocol to keep all operations within the software.
@@ -642,6 +647,7 @@ First Time Use Setup - The telescope needs to be configured within Stellarium.
 	\centering
 	\includegraphics[width=0.75\linewidth]{stellTeleWindow}
 	\caption{Stellarium Telescope Control Window}
+  \label{fig:stellTeleWindow}
 \end{figure}
 
 \item Ensure “Load at startup” is selected at the bottom on the window and Select “Configure” next to it.
@@ -655,6 +661,7 @@ First Time Use Setup - The telescope needs to be configured within Stellarium.
 	\centering
 	\includegraphics[width=0.75\linewidth]{stellConfig}
 	\caption{Stellarium Telescope Configuration}
+  \label{fig:stellConfig}
 \end{figure}
 
 Each Subsequent Use Setup: Ensure Stellarium recognizes the connection to your telescope by visiting the configurations menu again.
@@ -679,6 +686,7 @@ The coordinates are sent by Stellarium in hours, minutes, and seconds for right 
   \centering
   \includegraphics[width=\linewidth]{convStell}
   \caption{Coordinates generated by Stellarium}
+  \label{fig:conStell}
 \end{figure}
 
 The tricky part of celestial coordinates are they are constantly changing because the celestial coordinates are directly impacted by the orientation of the Earth. An orientation that goes through 26,000 year cycles. With this constant change, coordinates are derived from the current epoch or through the equinox of the date. An epoch is reference point used for a moment in time \cite{epoch}. We are currently in J2000 with the next update coming in 2050. It is important to note Stellarium lets us decide what reference of time we will use for object locations. If the system is ever changed in the settings, the telescope should be immediately recalibrated or the telescope will not point to the correct location. With this dependency with time, a real time clock needs to be in use when coordinates are formulated along with slew commands. This requires all conversions to be handled within Stellarium and not the Arduino board. The board has no room to hold the micro controller needed for a real time clock.
@@ -696,11 +704,13 @@ Now we can determine the exact movements the telescope needs to reach the coordi
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{convMath}
+  \label{fig:convMath}
 \end{figure}
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{convExample}
   \caption{First image shows formulas, Second image provides example of process}
+  \label{fig:convExample}
 \end{figure}
 
 \subsubsection*{Meridian Flip}
@@ -718,14 +728,15 @@ Figure \ref{fig:archiveusecase}
 
 \begin{figure}[h]
   \centering
-
   \includegraphics[width=0.6\linewidth]{beforeflip}
+  \label{fig:beforeflip}
 \end{figure}
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.6\linewidth]{afterflip}
    \caption{First image on left is start of tracking. Second image on right shows tracking after flip.}
+   \label{fig:afterflip}
 \end{figure}
 
 To help give a visual idea of the meridian flip, three images are supplied below. The object being tracked started to the east of the meridian and moves westward while remaining at a DEC of 0 degrees. As the telescope tracks westward, figure \ref{fig:beforeflip} shows the end of the telescope would hit the mount if the telescope stayed on its current course. To avoid this, we would send to the Arduino to start rotating the RA motor counterclockwise from its current location while the DEC motor rotates 180 degrees clockwise. This flip is shown in figure \ref{fig:during flip}. The telescope will not end up pointing to a new location. Rather the mix of these movements will result in flip over the ‘y’ axis of the mount as shown in the third image. The DEC motor will once again be pointed to 0 degrees while the RA motor will be pointed to the same degree it had before the flip but can now keep tracking westward. The ending state of the telescope is shown in figure \ref{fig:afterflip}.
@@ -734,6 +745,7 @@ To help give a visual idea of the meridian flip, three images are supplied below
   \centering
   \includegraphics[width=0.6\linewidth]{duringflip}
   \caption{Telescope while performing meridian flip.}
+  \label{fig:duringflip}
 \end{figure}
 
 What does this mean for our communications between Stellarium and the Arduino? If the flip happens during the tracking of an object, tracking must halt and the end coordinates need to be saved while the flip occurs. We will take control of the telescope while the flip happens thus the coordinates need to be saved so we can reinitialize the slew after the flip has been processed. This will be implemented so our flip commands and slew commands do not tamper with each other. The strings outputted by the meridian flip will not be telling the telescope about a new point in the sky and thus will be the same no matter where the flip occurs. The DEC motor will rotate 180 degrees and then the RA motor will rotate counterclockwise until the original DEC location is achieved. Next, Stellarium will need to take in a new command outside the LX200 protocol for a manual annual meridian flip initialized by a button on the telescope. This command will call the same meridian flip function as used during object tracking but our software would not have known the need to do so without the command from the Arduino.
