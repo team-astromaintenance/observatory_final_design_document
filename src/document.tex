@@ -288,15 +288,16 @@ Our software will be a C++ open-sourced console application, which we will be de
 
 The main use for our model telescope will be to demonstrate the movement functionality of both our interdisciplinary teams hardware and our computer science team's software. With that being understood, the most important feature of our software is moving the telescope to focus on a single point in the sky in order to demonstrate proper movement. It will very much resemble a 'point, click, and go' method of movement. This will be accomplished by first using the aforementioned open-sourced software Stellarium to pick a point in the sky in order to pull the equatorial coordinates of that location. Once our software has those coordinates, the user will be able to decide if they want to move the telescope to this position without tracking, or move to this position and follow that point in the sky as the Earth rotates by choosing the tracking option.
 
-The user interface for this functionality will be very simple and to the point (Figure 1). Stellarium gives a beautiful virtual planetarium of the sky from wherever you are by taking your device's current location, or a location that the user specifies. Our software will plug into Stellarium via a toggle on the bottom taskbar of the program. When toggled on, a console application will appear showing the main screen of our software. As shown below, this will give the current equatorial coordinates of what the user has picked on the virtual planetarium. It will show empty coordinates if the user has yet to pick anything. The chosen point in the sky is denoted by a bullseye icon on the planetarium.
+The user interface for this functionality will be very simple and to the point (Figure \ref{fig:MainScreen}). Stellarium gives a beautiful virtual planetarium of the sky from wherever you are by taking your device's current location, or a location that the user specifies. Our software will plug into Stellarium via a toggle on the bottom taskbar of the program. When toggled on, a console application will appear showing the main screen of our software. As shown below, this will give the current equatorial coordinates of what the user has picked on the virtual planetarium. It will show empty coordinates if the user has yet to pick anything. The chosen point in the sky is denoted by a bullseye icon on the planetarium.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.85\linewidth]{MainScreen}
 	\caption{Main screen of telescope control}
+	\label{fig:MainScreen}
 \end{figure}
 
-The user will be able to move the telescope by clicking the 'Slew telescope' button when there are coordinates in the coordinate textboxes. If there is a camera currently attached, they will also be able to view whatever their current camera is visually seeing (Figure 2) as well as take a picture of the camera's view of that exact moment in time. These can be stored both externally as well as locally, and this will be explained later.
+The user will be able to move the telescope by clicking the 'Slew telescope' button when there are coordinates in the coordinate textboxes. If there is a camera currently attached, they will also be able to view whatever their current camera is visually seeing (Figure \ref{fig:MainScreenwithCameraView}) as well as take a picture of the camera's view of that exact moment in time. These can be stored both externally as well as locally, and this will be explained later.
 
 \newpage
 
@@ -304,14 +305,16 @@ The user will be able to move the telescope by clicking the 'Slew telescope' but
 	\centering
 	\includegraphics[width=0.90\linewidth]{MainScreenwithCameraView}
 	\caption{Camera pop-up to view what the camera is currently seeing}
+	\label{fig:MainScreenwithCameraView}
 \end{figure}
 
-The camera viewing application will be external of the control software, and will likely be the native camera software that comes with Windows. There will be warnings for when a camera is not detected when the user tries to use the camera options (Figure 3), or if there is no telescope detected when the user tries to move the telescope (Figure 4).
+The camera viewing application will be external of the control software, and will likely be the native camera software that comes with Windows. There will be warnings for when a camera is not detected when the user tries to use the camera options (Figure \ref{fig:NoCameraDetected}), or if there is no telescope detected when the user tries to move the telescope (Figure \ref{fig:MainScreenNoTelescope}).
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.70\linewidth, height=7cm]{NoCameraDetected}
 	\caption{Warning that there is no camera detected}
+	\label{fig:NoCameraDetected}
 \end{figure}
 
 \newpage
@@ -321,9 +324,10 @@ The camera viewing application will be external of the control software, and wil
 	\centering
 	\includegraphics[width=0.70\linewidth, height=9cm]{MainScreenNoTelescope}
 	\caption{Warning that there is no telescope detected}
+	\label{fig:MainScreenNoTelescope}
 \end{figure}
 
-There will be fail-safes in place in case the user accidentally tries to move the telescope to an impossible position, as well as visual warnings as shown below (Figure 5). The user will have the option to override the warnings, but the telescope will stop when it reaches near a collision point, such as with the ground if the user is trying to look at a star that can currently only be soon on the opposite side of the world.
+There will be fail-safes in place in case the user accidentally tries to move the telescope to an impossible position, as well as visual warnings as shown below (Figure \ref{fig:MainScreenSlewWarning}). The user will have the option to override the warnings, but the telescope will stop when it reaches near a collision point, such as with the ground if the user is trying to look at a star that can currently only be soon on the opposite side of the world.
 
 Another built-in fail-safe not necessarily shown to the user in the software is what is known as the 'Meridian Flip'. The Mechanical engineers that we are working with are designing the telescope to have a German equatorial mount. This is a type of telescope design that helps to track an object using constant speed movement on one axis that is oriented parallel to the Earth's axis of rotation. The downside to this mount is that the balancing arm, acting as a counterweight, can run into itself when tracking something that passes over the meridian line. Therefore, we will build a fail-safe that will do a 180 degree flip of the telescope when tracking across the meridian to avoid this collision.
 
@@ -335,6 +339,7 @@ Building this fail-safe into our software will also help further the understandi
 	\centering
 	\includegraphics[width=0.80\linewidth, height=10cm]{MainScreenSlewWarning}
 	\caption{Movement warning when attempting to move the telescope to an impossible position}
+	\label{fig:MainScreenSlewWarning}
 \end{figure}
 
 Below these slew and camera options will finally be the saving and loading functionality as described in the next section.
@@ -343,7 +348,7 @@ Below these slew and camera options will finally be the saving and loading funct
 
 \subsubsection{Storing and Loading Previous Positions}
 
-Other than movement, another focus of our software will be to store previous positions and movements as a list of searchable choices to then load into the telescope to move it without having to find that position manually in Stellarium's virtual planetarium again. This will be achieved by having the option to save your currently selected position along with a unique name and picture associated with the coordinates while the control console application is up and running (Figure 6). This can be done by clicking 'Save Coordinates' on the main page. Once saved, the position and chosen options are stored either locally or externally, or both, in the application to be searched for via a search user interface that can be accessed by clicking 'Load Coordinates' on the main page.
+Other than movement, another focus of our software will be to store previous positions and movements as a list of searchable choices to then load into the telescope to move it without having to find that position manually in Stellarium's virtual planetarium again. This will be achieved by having the option to save your currently selected position along with a unique name and picture associated with the coordinates while the control console application is up and running (Figure \ref{fig:Save}). This can be done by clicking 'Save Coordinates' on the main page. Once saved, the position and chosen options are stored either locally or externally, or both, in the application to be searched for via a search user interface that can be accessed by clicking 'Load Coordinates' on the main page.
 
 \newpage
 
@@ -354,9 +359,10 @@ This will also remember whether or not the user decided to track the position, a
 	\centering
 	\includegraphics[width=0.60\linewidth, height=8cm]{Save}
 	\caption{The save coordinates screen}
+	\label{fig:Save}
 \end{figure}
 
-This search page (Figure 7) will be dynamic in nature, searching through either both or separately files specified in a local save location and files stored in an external save location. These locations are edited in the settings, which will be further explained in the following section. As can be seen in the below figure, there will be four columns by which are self-explanatory within the figure. The unique column is the 'Picture' column, where a thumbnail of the picture related to that row's coordinate is shown. Clicking this thumbnail will cause a pop-up of the actual picture file (Figure 8).
+This search page (Figure \ref{fig:SearchPage}) will be dynamic in nature, searching through either both or separately files specified in a local save location and files stored in an external save location. These locations are edited in the settings, which will be further explained in the following section. As can be seen in the below figure, there will be four columns by which are self-explanatory within the figure. The unique column is the 'Picture' column, where a thumbnail of the picture related to that row's coordinate is shown. Clicking this thumbnail will cause a pop-up of the actual picture file (Figure \ref{fig:SearchClickedPicture}).
 
 This picture file will either be retrieved from local memory within our software, or from a user-specified external location as established in the settings. We will be implementing this into our website in a way such that the website will be able to draw form this exact same search list as the software is pulling from.
 
@@ -364,6 +370,7 @@ This picture file will either be retrieved from local memory within our software
 	\centering
 	\includegraphics[width=0.55\linewidth, height=7.0cm]{SearchPage}
 	\caption{The search page to load a previously saved coordinate}
+	\label{fig:SearchPage}
 \end{figure}
 
 \newpage
@@ -372,26 +379,29 @@ This picture file will either be retrieved from local memory within our software
 	\centering
 	\includegraphics[width=0.65\linewidth, height=7.0cm]{SearchClickedPicture}
 	\caption{By clicking the picture thumbnail, this will trigger the full-sized picture to pop up}
+	\label{fig:SearchClickedPicture}
 \end{figure}
 
-The user can choose to load a given coordinate by clicking the select button on the chosen row, and this will bring the user back to the main page and will fill the coordinate textboxes with the saved coordinate information. However, we will have safeguards in place similar to the previously mentioned safe guards on the main page with moving the telescope. We will warn the user if they are attempting to load a coordinate that is currently not in the observable sky (Figure 9), because again this can cause possibly catastrophic issues.
+The user can choose to load a given coordinate by clicking the select button on the chosen row, and this will bring the user back to the main page and will fill the coordinate textboxes with the saved coordinate information. However, we will have safeguards in place similar to the previously mentioned safe guards on the main page with moving the telescope. We will warn the user if they are attempting to load a coordinate that is currently not in the observable sky (Figure \ref{fig:SearchwithWarning}), because again this can cause possibly catastrophic issues.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.65\linewidth, height=7.0cm]{SearchwithWarning}
 	\caption{Warning triggered by impossible coordinates}
+	\label{fig:SearchwithWarning}
 \end{figure}
 
 \newpage
 
 \subsubsection{Setting the Settings}
 
-The final main piece to our software is the settings page (Figure 10). This page is the customizable brains of the control software. On this page is where the user will choose from the list of detected cameras which one they would like to use as the main camera, as well as what type of format that the coordinates will have. The coordinates can have an hours-minutes-seconds, degrees-minutes-seconds, and decimal format.
+The final main piece to our software is the settings page (Figure \ref{fig:Settings}). This page is the customizable brains of the control software. On this page is where the user will choose from the list of detected cameras which one they would like to use as the main camera, as well as what type of format that the coordinates will have. The coordinates can have an hours-minutes-seconds, degrees-minutes-seconds, and decimal format.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.75\linewidth, height=10.0cm]{Settings}
 	\caption{The control software settings}
+	\label{fig:Settings}
 \end{figure}
 
 
@@ -415,136 +425,6 @@ We will then set up the auto-detection of any cameras connected to the system. W
 
 Lastly, we will develop the file that will contain the information needed for our application to communicate to an external server whenever the user specifies external data locations. This will help facilitate our telescope communicating with our website.
 
-\subsection{ROS Integration with Stand-Alone Gazebo For a Testing Environment}
-
-\subsubsection{Explanation for Need}
-
-This section will explain how we intent to test our software after it is created. As mentioned previously, we will be testing the software in a simulator environment before we use it on the physical telescope itself. The actual uses for this simulator environment, as well as how we installed and set it all up, is explained in the following sections.
-
-\newpage
-
-\subsubsection{What is Ros?}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.50\linewidth]{melodic}
-	\caption{ROS Melodic}
-\end{figure}
-
-The Robot Operating System, otherwise referred to as ROS, is a flexible framework used for the purposes of writing software for robotic systems. It is a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behavior across a wide variety of robotic platforms.\cite{ROSDescription} It is commonly used in conjunction with Python and C++, and for our purposes we will be programming in C++. Furthermore, ROS is home to a large community of user-contributed packages that adds a lot of value to integrating ROS into our core systems. Why reinvent the wheel and rediscover wood when we can instead invent a brand new cart from existing pieces already put together by other people for other projects?
-
-The core of ROS is licensed under the standard three-clause BSD license. This is a very permissive open license that allows for reuse in commercial and closed source products. This works great for the purposes of our model telescope, because we wish to keep our creation entirely open-sourced. While the core parts of ROS are specified as being licensed under the BSD license, other licenses are commonly used in the user-contributed community packages such as the Apache 2.0 license, the GPL license, the MIT license, and even proprietary licenses. For the sake of our aforementioned open-source goal, our team will avoid any community packages that state the use of proprietary licenses. Every user-contributed package is required to explicitly state what kind of licensing it uses, and so this should not be an issue for our team.
-
-\subsubsection{What is Gazebo?}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.98\linewidth]{gazebo}
-	\caption{Example of Gazebo environment}
-\end{figure}
-
-Gazebo is a 3D dynamic simulator with the ability to accurately and efficiently simulate robotic systems in complex indoor and outdoor environments. While it appears to be similar to game engine environments, the differences in Gazebo lies in its ability to offer physics simulations at a much higher degree of fidelity, a suite of sensors, and interfaces for both users and programs.\cite{GazeboDescription} Other key features of Gazebo include multiple physics engines to choose from, a vast library of robotic models and environments, as well as advantageous programmatic and graphical interfaces. This will help create a more conductive programming environment for our team so that we can feel confident in what we create.
-
-\newpage
-
-Using Gazebo with our project gives us the ability to rapidly test algorithms in a simulation environment, design our model telescope with the understanding that it is a robot, perform regression testing, and possibly even train our model telescope to use a basic AI system that uses realistic scenarios. To accomplish all of this, Gazebo was designed to work on Linux operating systems and it works the best on Ubuntu, which is a flavor of Linux. Thus, this will require us to install Ubuntu in order to run Gazebo.
-
-\subsubsection{Ubuntu, a flavor of Linux}
-To understand what Ubuntu is and how to install it, an individual first has to understand what Linux is. Linux is an operating system for a computer environment, and that means it is a software that manages all of the hardware resources associated with your computer. Linux is just another way to manage the communication between the software and hardware of your device.\cite{LinuxExplaination} The reasons behind why people use Linux are numerous, and the following are a few of the most common reasons:
-\begin{description}[font=$\bullet$~\normalfont\scshape\color{red!50!black}]
-	\item [Zero Cost of Entry] Linux is entirely free, and you can install it on as many systems as you would like without ever encountering a software license or fee.
-	\item [Usability] You can do everything on Linux that you are used to doing on one of the more popular operating systems such as Windows or iOS. The key difference is that Linux has actually simplified many processes, and what can be a daunting task on one operating system is just a few commands and clicks on the Linux operating system. Hour long tasks can be accomplished in minutes.
-	\item [System Administration] Linux is known as the "set it and forget it" operating system due to how it rarely changes it's core features, which means that you can be assured that once something is set up then you almost never have to worry about it again. Often times in other operating systems, key updates can break entire programs and cause the user to have to hunt down the issues and reconfigure multiple different areas. This is not the case with Linux, and even on the rare occasion that something within the operating system may break, almost always it does not affect any other part of the system other than the specific part that broke.
-	\item [Open Source Licensing] Linux is also known as the operating system that is "by the people, and for the people". This is because Linux is entirely open-sourced and user-run, meaning that users have the freedom to run any programs for any purposes. They also have the freedom to redistribute any amount of copies as they wish, as well as modifying anything they would like and redistributing that as well. Linux is a virtual playground of options with almost no business-related consequences.
-\end{description}
-
-So then we come to the question of Ubuntu and what it has to do in relation to Linux. Linux has many different versions of itself, known as flavors, which goes hand in hand with what was stated earlier about freely modifying and redistributing Linux due to it's open-sourced nature. Ubuntu is a complete Linux operating system, and it is freely available to everyone with total support from both the community as well as professionals. The initial creators of Ubuntu created a manifesto when developing their flavor of Linux, and it's premise is that software should always be available free of charge and usable by people in their local language despite any disabilities, and that people should have the freedom to customize and alter their software in whatever way they see fit.\cite{Ubuntu} Ubuntu gets its professional support from Canonical Ltd, and Canonical's business model is to provide technical support and professional services related to Ubuntu free of charge now and always.
-
-To now understand why both Gazebo and ROS use and take advantage of Ubuntu, we have to learn about one final puzzle piece, the Debian Project. Debian is an all-volunteer organization dedicated to developing free software and promoting the ideals of the Free Software community. \cite{Debian} Ubuntu and Debian are distinct systems but parallel in their endeavors, which makes them closely linked. One of Ubuntu's goals is to complement the Debian project. Many of Gazebo's packages are distributed using Debian systems, and so while working with Gazebo and ROS we will also be working closely with the Debian development community.
-
-\subsubsection{Installing Ubuntu}
-While Unbuntu itself is an amazing piece of community-sourced software development, the actual installation of the operating system into a computer is another beast entirely. While it was designed to be as seamless as possible, the issues lie in the fact that most computers already have a standard operating system on them such as Windows or iOS. This brings us to one of two options, both of which are explained below:
-\begin{description}[font=$\bullet$~\normalfont\scshape\color{red!50!black}]
-	\item [Removing the current operating system and replacing it with Ubuntu] At the end of the day, operating systems are no more special than any other piece of software installed onto your device. Knowing this, it is simple to grasp that you can uninstall one operating system and replace it with another. This is a good option if you are not tied into your current operating system in any fashion, such as operating system specific software and programs that are essential to your needs, and if you are alright with switching to an entirely new type of operating system user interface and commands. It is highly recommended to have all of your information that you do not want to lose on a separate drive than what your operating system lives on, so that you do not run the risk of forever erasing any of that important data.
-	\item [Installing Ubuntu beside the current operating sytem with dual-boot] You can also go the route of keeping your current operating system, and choosing to also install Ubuntu alongside it so that you can choose which operating system you will be working in on system startup. While this avoids the risks of having to untie yourself from operating system specific software, this introduces a whole new slew of risks due to this method messing with the boot manager of your motherboard's Bios and other such activities. Motherboards, the brains that control our computers, do not have built-in methods of running between two separate operating systems. Therefore, part of the Ubuntu dual-boot install requires the installing of a custom boot-up user interface, known as GRUB, that will let the user pick which operating system to use.
-\end{description}
-
-For the sake of our development, we went the dual-boot method so that we can maintain our current system environments while also having the ability to switch to Ubuntu for the sake of our project development. In order to begin this method we first have to create a bootable USB drive with Ubuntu installed on it so that our computer can boot into that drive. To create this bootable USB drive we needed a USB writing tool, and so we went with Rufus which is a widely-used open-sourced tool for writing ISO files onto flash drives. Having installed Rufus, as well as downloading the latest version of Ubuntu from Ubuntu's official website, we then use Rufus to make our flash drive a bootable Ubuntu USB (Figure 13).
-
-
-
-
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.50\linewidth]{rufus}
-	\caption{Rufus}
-\end{figure}
-
-Once this is done, we powered down the computer and turned it back on. When first turning on, we switch the initial boot device from our normal operating system to the USB that we plugged in. This will then boot into Ubuntu where we are presented with the options to install (Figure 14). Choosing the dual-boot option on the next page will bring us through some various choices screens and account setup, and then we hit the actual installation (Figure 15). Once installed, we can now dual boot into either of our operating systems using the new GRUB menu (Figure 16).
-
-We then have to actually set up our working environment within Ubuntu. This involves installing ROS and Gazebo and getting them up and running on our machine. The following sections will cover how to do exactly that.
-
-\newpage
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.50\linewidth]{install}
-	\caption{Ubuntu Install Options}
-\end{figure}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.50\linewidth]{installing}
-	\caption{Ubuntu Installing}
-\end{figure}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.42\linewidth]{dual}
-	\caption{Dual-booting}
-\end{figure}
-
-\newpage
-
-\subsubsection{Installing Gazebo}
-\indent Using Ubuntu packages, installing Gazebo is just a few simple steps. First we had to set up our computer to be able to accept software packages from 'packages.osrfoundation.org' by running the following command in the terminal:
-\begin{verbatim}
-sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu
-`lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-latest.list'
-\end{verbatim}
-
-We then have to setup the keys and install Gazebo itself with the following terminal commands:
-\begin{verbatim}
-wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install gazebo5
-\end{verbatim}
-
-That's it! Gazebo is successfully installed, and we cna check this by running the 'Gazebo' command on the terminal window.
-
-\subsubsection{Installing ROS}
-
-Installing ROS is an extremely similar process to installing Gazebo. In fact, that's an example of what was stated earlier about why Linux is so straightforward ot use! First we had to set up our computer to be able to accept software packages from 'packages.ros.org' by running the following command in the terminal:
-
-\begin{verbatim}
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc)
-main" > /etc/apt/sources.list.d/ros-latest.list'
-\end{verbatim}
-
-We then have to setup the keys and install with the following terminal commands:
-
-\begin{verbatim}
-sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key
-421C365BD9FF1F717815A3895523BAEEB01FA116
-sudo apt update
-sudo apt install ros-melodic-desktop-full
-sudo rosdep init
-rosdep update
-sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential
-\end{verbatim}
-
-There you have it, a full install of ROS. Now comes the final piece, which is integrating ROS with Gazebo. To successfully achieve a ROS integration with stand-alone Gazebo, a set of ROS packages named "gazebo ros pkgs" provided by Gazebo, provides wrappers around the stand-alone version of Gazebo.\cite{GazeboRosIntegration} They provide the necessary interfaces to simulate a robot in Gazebo using ROS messages, services and dynamic reconfiguration.
 
 
 \subsubsection{Summarizing the Simulator Environment}
@@ -738,26 +618,161 @@ A meridian flip is unique to each telescope as the dimensions of telescopes are 
 \clearpage
 
 \begin{figure}[h]
-  \centering
-   
-  \includegraphics[width=0.6\linewidth]{beforeflip}
+	\centering
+	
+	\includegraphics[width=0.6\linewidth]{beforeflip}
 \end{figure}
 
 \begin{figure}[h]
-  \centering
-  \includegraphics[width=0.6\linewidth]{afterflip}
-   \caption{First image on left is start of tracking. Second image on right shows tracking after flip.}
+	\centering
+	\includegraphics[width=0.6\linewidth]{afterflip}
+	\caption{First image on left is start of tracking. Second image on right shows tracking after flip.}
 \end{figure}
 
 To help give a visual idea of the meridian flip, three images are supplied below. The object being tracked started to the east of the meridian and moves westward while remaining at a DEC of 0 degrees. As the telescope tracks westward, the first image shows the end of the telescope would hit the mount if the telescope stayed on its current course. To avoid this, we would send to the Arduino to start rotating the RA motor counterclockwise from its current location while the DEC motor rotates 180 degrees clockwise. This flip is shown in image two. The telescope will not end up pointing to a new location. Rather the mix of these movements will result in flip over the ‘y’ axis of the mount as shown in the third image. The DEC motor will once again be pointed to 0 degrees while the RA motor will be pointed to the same degree it had before the flip but can now keep tracking westward.
 
 \begin{figure}[h]
-  \centering
-  \includegraphics[width=0.6\linewidth]{duringflip}
-  \caption{Telescope while performing meridian flip.}
+	\centering
+	\includegraphics[width=0.6\linewidth]{duringflip}
+	\caption{Telescope while performing meridian flip.}
 \end{figure}
 
 What does this mean for our communications between Stellarium and the Arduino? If the flip happens during the tracking of an object, tracking must halt and the end coordinates need to be saved while the flip occurs. We will take control of the telescope while the flip happens thus the coordinates need to be saved so we can reinitialize the slew after the flip has been processed. This will be implemented so our flip commands and slew commands do not tamper with each other. The strings outputted by the meridian flip will not be telling the telescope about a new point in the sky and thus will be the same no matter where the flip occurs. The DEC motor will rotate 180 degrees and then the RA motor will rotate counterclockwise until the original DEC location is achieved. Next, Stellarium will need to take in a new command outside the LX200 protocol for a manual annual meridian flip initialized by a button on the telescope. This command will call the same meridian flip function as used during object tracking but our software would not have known the need to do so without the command from the Arduino.
+
+\subsection{ROS Integration with Stand-Alone Gazebo For a Testing Environment}
+
+\subsubsection{Explanation for Need}
+
+This section will explain how we intend to test our software after it is created. As mentioned previously, we will be testing the software in a simulator environment before we use it on the physical telescope itself. The actual uses for this simulator environment, as well as how we installed and set it all up, is explained in the following sections.
+
+\newpage
+
+\subsubsection{What is Ros?}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.50\linewidth]{melodic}
+	\caption{ROS Melodic}
+\end{figure}
+
+The Robot Operating System, otherwise referred to as ROS, is a flexible framework used for the purposes of writing software for robotic systems. It is a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behavior across a wide variety of robotic platforms.\cite{ROSDescription} It is commonly used in conjunction with Python and C++, and for our purposes we will be programming in C++. Furthermore, ROS is home to a large community of user-contributed packages that adds a lot of value to integrating ROS into our core systems. Why reinvent the wheel and rediscover wood when we can instead invent a brand new cart from existing pieces already put together by other people for other projects?
+
+The core of ROS is licensed under the standard three-clause BSD license. This is a very permissive open license that allows for reuse in commercial and closed source products. This works great for the purposes of our model telescope, because we wish to keep our creation entirely open-sourced. While the core parts of ROS are specified as being licensed under the BSD license, other licenses are commonly used in the user-contributed community packages such as the Apache 2.0 license, the GPL license, the MIT license, and even proprietary licenses. For the sake of our aforementioned open-source goal, our team will avoid any community packages that state the use of proprietary licenses. Every user-contributed package is required to explicitly state what kind of licensing it uses, and so this should not be an issue for our team.
+
+\subsubsection{What is Gazebo?}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.98\linewidth]{gazebo}
+	\caption{Example of Gazebo environment}
+\end{figure}
+
+Gazebo is a 3D dynamic simulator with the ability to accurately and efficiently simulate robotic systems in complex indoor and outdoor environments. While it appears to be similar to game engine environments, the differences in Gazebo lies in its ability to offer physics simulations at a much higher degree of fidelity, a suite of sensors, and interfaces for both users and programs.\cite{GazeboDescription} Other key features of Gazebo include multiple physics engines to choose from, a vast library of robotic models and environments, as well as advantageous programmatic and graphical interfaces. This will help create a more conductive programming environment for our team so that we can feel confident in what we create.
+
+\newpage
+
+Using Gazebo with our project gives us the ability to rapidly test algorithms in a simulation environment, design our model telescope with the understanding that it is a robot, perform regression testing, and possibly even train our model telescope to use a basic AI system that uses realistic scenarios. To accomplish all of this, Gazebo was designed to work on Linux operating systems and it works the best on Ubuntu, which is a flavor of Linux. Thus, this will require us to install Ubuntu in order to run Gazebo.
+
+\subsubsection{Ubuntu, a flavor of Linux}
+To understand what Ubuntu is and how to install it, an individual first has to understand what Linux is. Linux is an operating system for a computer environment, and that means it is a software that manages all of the hardware resources associated with your computer. Linux is just another way to manage the communication between the software and hardware of your device.\cite{LinuxExplaination} The reasons behind why people use Linux are numerous, and the following are a few of the most common reasons:
+\begin{description}[font=$\bullet$~\normalfont\scshape\color{red!50!black}]
+	\item [Zero Cost of Entry] Linux is entirely free, and you can install it on as many systems as you would like without ever encountering a software license or fee.
+	\item [Usability] You can do everything on Linux that you are used to doing on one of the more popular operating systems such as Windows or iOS. The key difference is that Linux has actually simplified many processes, and what can be a daunting task on one operating system is just a few commands and clicks on the Linux operating system. Hour long tasks can be accomplished in minutes.
+	\item [System Administration] Linux is known as the "set it and forget it" operating system due to how it rarely changes it's core features, which means that you can be assured that once something is set up then you almost never have to worry about it again. Often times in other operating systems, key updates can break entire programs and cause the user to have to hunt down the issues and reconfigure multiple different areas. This is not the case with Linux, and even on the rare occasion that something within the operating system may break, almost always it does not affect any other part of the system other than the specific part that broke.
+	\item [Open Source Licensing] Linux is also known as the operating system that is "by the people, and for the people". This is because Linux is entirely open-sourced and user-run, meaning that users have the freedom to run any programs for any purposes. They also have the freedom to redistribute any amount of copies as they wish, as well as modifying anything they would like and redistributing that as well. Linux is a virtual playground of options with almost no business-related consequences.
+\end{description}
+
+So then we come to the question of Ubuntu and what it has to do in relation to Linux. Linux has many different versions of itself, known as flavors, which goes hand in hand with what was stated earlier about freely modifying and redistributing Linux due to it's open-sourced nature. Ubuntu is a complete Linux operating system, and it is freely available to everyone with total support from both the community as well as professionals. The initial creators of Ubuntu created a manifesto when developing their flavor of Linux, and it's premise is that software should always be available free of charge and usable by people in their local language despite any disabilities, and that people should have the freedom to customize and alter their software in whatever way they see fit.\cite{Ubuntu} Ubuntu gets its professional support from Canonical Ltd, and Canonical's business model is to provide technical support and professional services related to Ubuntu free of charge now and always.
+
+To now understand why both Gazebo and ROS use and take advantage of Ubuntu, we have to learn about one final puzzle piece, the Debian Project. Debian is an all-volunteer organization dedicated to developing free software and promoting the ideals of the Free Software community. \cite{Debian} Ubuntu and Debian are distinct systems but parallel in their endeavors, which makes them closely linked. One of Ubuntu's goals is to complement the Debian project. Many of Gazebo's packages are distributed using Debian systems, and so while working with Gazebo and ROS we will also be working closely with the Debian development community.
+
+\subsubsection{Installing Ubuntu}
+While Unbuntu itself is an amazing piece of community-sourced software development, the actual installation of the operating system into a computer is another beast entirely. While it was designed to be as seamless as possible, the issues lie in the fact that most computers already have a standard operating system on them such as Windows or iOS. This brings us to one of two options, both of which are explained below:
+\begin{description}[font=$\bullet$~\normalfont\scshape\color{red!50!black}]
+	\item [Removing the current operating system and replacing it with Ubuntu] At the end of the day, operating systems are no more special than any other piece of software installed onto your device. Knowing this, it is simple to grasp that you can uninstall one operating system and replace it with another. This is a good option if you are not tied into your current operating system in any fashion, such as operating system specific software and programs that are essential to your needs, and if you are alright with switching to an entirely new type of operating system user interface and commands. It is highly recommended to have all of your information that you do not want to lose on a separate drive than what your operating system lives on, so that you do not run the risk of forever erasing any of that important data.
+	\item [Installing Ubuntu beside the current operating sytem with dual-boot] You can also go the route of keeping your current operating system, and choosing to also install Ubuntu alongside it so that you can choose which operating system you will be working in on system startup. While this avoids the risks of having to untie yourself from operating system specific software, this introduces a whole new slew of risks due to this method messing with the boot manager of your motherboard's Bios and other such activities. Motherboards, the brains that control our computers, do not have built-in methods of running between two separate operating systems. Therefore, part of the Ubuntu dual-boot install requires the installing of a custom boot-up user interface, known as GRUB, that will let the user pick which operating system to use.
+\end{description}
+
+For the sake of our development, we went the dual-boot method so that we can maintain our current system environments while also having the ability to switch to Ubuntu for the sake of our project development. In order to begin this method we first have to create a bootable USB drive with Ubuntu installed on it so that our computer can boot into that drive. To create this bootable USB drive we needed a USB writing tool, and so we went with Rufus which is a widely-used open-sourced tool for writing ISO files onto flash drives. Having installed Rufus, as well as downloading the latest version of Ubuntu from Ubuntu's official website, we then use Rufus to make our flash drive a bootable Ubuntu USB (Figure \ref{fig:rufus}).
+
+
+
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.50\linewidth]{rufus}
+	\caption{Rufus}
+	\label{fig:rufus}
+\end{figure}
+
+Once this is done, we powered down the computer and turned it back on. When first turning on, we switch the initial boot device from our normal operating system to the USB that we plugged in. This will then boot into Ubuntu where we are presented with the options to install (Figure \ref{fig:install}). Choosing the dual-boot option on the next page will bring us through some various choices screens and account setup, and then we hit the actual installation (Figure \ref{fig:installing}). Once installed, we can now dual boot into either of our operating systems using the new GRUB menu (Figure \ref{fig:dual}).
+
+We then have to actually set up our working environment within Ubuntu. This involves installing ROS and Gazebo and getting them up and running on our machine. The following sections will cover how to do exactly that.
+
+\newpage
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.50\linewidth]{install}
+	\caption{Ubuntu Install Options}
+	\label{fig:install}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.50\linewidth]{installing}
+	\caption{Ubuntu Installing}
+	\label{fig:installing}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.42\linewidth]{dual}
+	\caption{Dual-booting}
+	\label{fig:dual}
+\end{figure}
+
+\newpage
+
+\subsubsection{Installing Gazebo}
+\indent Using Ubuntu packages, installing Gazebo is just a few simple steps. First we had to set up our computer to be able to accept software packages from 'packages.osrfoundation.org' by running the following command in the terminal:
+\begin{verbatim}
+sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu
+`lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-latest.list'
+\end{verbatim}
+
+We then have to setup the keys and install Gazebo itself with the following terminal commands:
+\begin{verbatim}
+wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install gazebo5
+\end{verbatim}
+
+That's it! Gazebo is successfully installed, and we cna check this by running the 'Gazebo' command on the terminal window.
+
+\subsubsection{Installing ROS}
+
+Installing ROS is an extremely similar process to installing Gazebo. In fact, that's an example of what was stated earlier about why Linux is so straightforward ot use! First we had to set up our computer to be able to accept software packages from 'packages.ros.org' by running the following command in the terminal:
+
+\begin{verbatim}
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc)
+main" > /etc/apt/sources.list.d/ros-latest.list'
+\end{verbatim}
+
+We then have to setup the keys and install with the following terminal commands:
+
+\begin{verbatim}
+sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key
+421C365BD9FF1F717815A3895523BAEEB01FA116
+sudo apt update
+sudo apt install ros-melodic-desktop-full
+sudo rosdep init
+rosdep update
+sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential
+\end{verbatim}
+
+There you have it, a full install of ROS. Now comes the final piece, which is integrating ROS with Gazebo. To successfully achieve a ROS integration with stand-alone Gazebo, a set of ROS packages named "gazebo ros pkgs" provided by Gazebo, provides wrappers around the stand-alone version of Gazebo.\cite{GazeboRosIntegration} They provide the necessary interfaces to simulate a robot in Gazebo using ROS messages, services and dynamic reconfiguration.
 
 \newpage
 
