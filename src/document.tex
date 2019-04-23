@@ -461,14 +461,14 @@ With Stellarium, the telescope control feature works in two ways: direct or indi
 
 The next option available is Cartes du Ciel written by Patrick Chevalley \cite{skychart}. SkyChart's base use, like the name implies, is draw sky charts. A sky chart is similar to a map as it shows the location of stars in the current sky. This software is open-source and available on Windows, Mac, or Linux. Since this software is based in the drawing of SkyCharts, its open library has a plethora of information. People can upload their charts to the library for others to use. This mass database is useful for stargazing on specific stars and space areas, something our model will not need to feature. Our model will not have the camera range to prove if we are looking in the correct area for many of the charts available. This would be a great feature for the observatory though, as it has a camera strong enough for detailed viewings of space.
 
+Through the use of these charts, the software provides a vast library of objects to choose to slew a telescope to. To do so, the software can talk through the LX200 protocol like Stellarium. Furthermore, it supports INDI protocol for Mac and Linux while supporting ASCOM protocol for Windows. The ASCOM and INDI protocols are used to bridge the connection between control software and telescope. They are both open source frameworks designed specifically for the astronomy field. These protocols work through middleware causing the need for more software to be involved. The simplest option would to use the LX200 protocol to keep all operations within the software.
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.75\linewidth]{carte}
 	\caption{Carte du Ciel main page}
-  \label{fig:carte}
+	\label{fig:carte}
 \end{figure}
-
-Through the use of these charts, the software provides a vast library of objects to choose to slew a telescope to. To do so, the software can talk through the LX200 protocol like Stellarium. Furthermore, it supports INDI protocol for Mac and Linux while supporting ASCOM protocol for Windows. The ASCOM and INDI protocols are used to bridge the connection between control software and telescope. They are both open source frameworks designed specifically for the astronomy field. These protocols work through middleware causing the need for more software to be involved. The simplest option would to use the LX200 protocol to keep all operations within the software.
 
 SkyChart adds more options for how to send data between the software and our telescope. These protocol options would be more helpful though with the observatory telescope. The sub-scale model will be very simplistic in features. We do not need to worry about camera focus or dome control like the observatory does. These features would find use with the INDI and ASCOM protocols as you can send more information between telescope and software. As we only need slew commands and position strings, the LX200 protocol is still most useful for the model.
 
