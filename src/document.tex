@@ -504,7 +504,7 @@ The first challenge, and most likely the biggest, will be relating software comm
 
 The next challenge is reviewing the current code of Stellarium to find the areas where we will place in our modifications. Currently, most of the telescope control program does not feature documentation informing you of what the current function is accomplishing. Thus, we will need to take the extra time of reading through the plethora of code so we can pin point the areas we want to modify. When trying to decipher code, the easiest path is talking to the writers of this code. As this is not always possible no matter where your project is occurring, personal or work life, this will be good practice for the team.
 
-Furthermore, a challenge we face is testing. How will we know whether our software is correctly controlling a telescope while our sub-scale model is being built? This is where we will use Gazebo. Ideally, our control plugin we create will be able to work in Gazebo where it will control a robot until the model is built. Once the model is built, testing will be handled through tracking objects with a GoPro and/or laser pointer. The GoPro can show success or failure in tracking objects through video. A laser pointer can show proper movement to a set coordinate and even tracking but someone would need to constantly be checking the accuracy of the laser to the object. Can we control the telescope to track the moon or sun? This will be our big test on the system as a whole.
+In addition, a challenge we face is testing. How will we know whether our software is correctly controlling a telescope while our sub-scale model is being built? This is where we will use Gazebo. Ideally, our control plugin we create will be able to work in Gazebo where it will control a robot until the model is built. Once the model is built, testing will be handled through tracking objects with a GoPro and/or laser pointer. The GoPro can show success or failure in tracking objects through video. A laser pointer can show proper movement to a set coordinate and even tracking but someone would need to constantly be checking the accuracy of the laser to the object. Can we control the telescope to track the moon or sun? This will be our big test on the system as a whole.
 
 Furthermore, testing is important to not only ensure we can control a telescope but also are our coordinate conversions correct. Yes, math conversions can be checked on paper but what if we are missing an important step between motor instructions and celestial coordinates. This issue arises from the time dependency of celestial coordinates and the inactivity of the telescope between uses. When dealing with this kind of issue, it can usually be troubleshooted through trial and error. The problem is the design of the telescope has not been finalized as of yet so we cannot put our conversions through a process of trial and error since we don’t know gear ratios and stepper counts for the motors.
 
@@ -1411,6 +1411,8 @@ The login page will grant access to the website and the features included.  The 
 	\caption{bcrypt Functions}
 	\label{fig:API bcrypt}
 \end{figure}
+
+\newpage
 
 \subsubsection{Search}
 
