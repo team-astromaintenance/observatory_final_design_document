@@ -1122,7 +1122,7 @@ The display technique is familiar to most modern users. Many modern websites and
 
 \subsubsection{SQL}
 
-Structured Query Language (SQL) is the most popular language for managing Relational Database Management System (RDBMS).  SQL was initially developed by IBM researchers Raymond Boyce and Donald Chamberlin in the 1970s.  SQL includes data query, data manipulation (insert, update, and delete), data definition, and data access control.  SQL is known for its readability and ease of learning.  MySQL and Microsoft SQL Server are two widely used database systems each being used for LAMP stacks and WISA stacks respectively.  Just recently, both options have become available on Windows, Linux, and MAC OS X.  Due to its age and availability, SQL is heavily documented in its functionality.
+Structured Query Language (SQL) is the most popular language for managing Relational Database Management System (RDBMS).  SQL was initially developed by IBM researchers Raymond Boyce and Donald Chamberlin in the 1970s.\cite{sql}  SQL includes data query, data manipulation (insert, update, and delete), data definition, and data access control.\cite{sql}  SQL is known for its readability and ease of learning.  MySQL and Microsoft SQL Server are two widely used database systems each being used for LAMP stacks and WISA stacks respectively.  Just recently, both options have become available on Windows, Linux, and MAC OS X.  Due to its age and availability, SQL is heavily documented in its functionality.
 
 \begin{figure}[h]
 	\centering
@@ -1131,7 +1131,7 @@ Structured Query Language (SQL) is the most popular language for managing Relati
 
 \subsubsection{MySQL}
 
-MySQL is an open source Relational Database Management System (RDBMS) that uses Structured Query Language (SQL).  MySQL is the database component of the LAMP (Linux, Apache, MySQL, PHP) web application software stack.  MySQL is used by popular companies such as Netflix, NASA, Tesla, and Youtube.  MySQL was created by a Swedish company, MySQL AB, by David Axmark and Michael Widenius in 1995 and is currently owned by Oracle.  Similar to SQL itself due to the age of MySQL, its complexity and problems have been encountered and documented so solutions are readily available.  The popularity of MySQL creates a loop of being popular due to its popularity.  Developers are readily available and the cheap hosting environments makes MySQL very accessible.  It is primarily written in C and C++.  While still open source under Oracle, some modules are proprietary and close-sourced.
+MySQL is an open source Relational Database Management System (RDBMS) that uses Structured Query Language (SQL).\cite{mysql}  MySQL is the database component of the LAMP (Linux, Apache, MySQL, PHP) web application software stack.  MySQL is used by popular companies such as Netflix, NASA, Tesla, and Youtube.  MySQL was created by a Swedish company, MySQL AB, by David Axmark and Michael Widenius in 1995 and is currently owned by Oracle.  Similar to SQL itself due to the age of MySQL, its complexity and problems have been encountered and documented so solutions are readily available.  The popularity of MySQL creates a loop of being popular due to its popularity.  Developers are readily available and the cheap hosting environments makes MySQL very accessible.  It is primarily written in C and C++.  While still open source under Oracle, some modules are proprietary and close-sourced.
 
 \begin{figure}[h]
 	\centering
@@ -1140,7 +1140,7 @@ MySQL is an open source Relational Database Management System (RDBMS) that uses 
 
 \subsubsection{Microsoft SQL Server}
 
-SQL server is owned by Microsoft and has frequent releases.  The licenses required for running SQL server makes it more expensive than MySQL which is free and open-source outside of the enterprise level.  SQL server is mainly used in Microsoft’s WISA (Windows, IIS, SQL Server, ASP.NET) stacks where all components were designed by Microsoft and built to function together.  The added benefit of WISA stacks is that customer support can be handled by Microsoft across all levels.  SQL server is very to install and has transparent data compression and encryption which also provides better security features.
+SQL server is owned by Microsoft and has frequent releases that offer high performances, security and compliance, disaster recovery, and more.\cite{microsoftsql}  The licenses required for running SQL server makes it more expensive than MySQL which is free and open-source outside of the enterprise level.  SQL server is mainly used in Microsoft’s WISA (Windows, IIS, SQL Server, ASP.NET) stacks where all components were designed by Microsoft and built to function together.  The added benefit of WISA stacks is that customer support can be handled by Microsoft across all levels.  SQL server is very to install and has transparent data compression and encryption which also provides better security features.
 
 \subsubsection{NoSQL}
 
@@ -1157,7 +1157,7 @@ NoSQL Databases are a newer technology from the late 2000s that were developed s
 
 \subsubsection{MariaDB}
 
-MariaDB was created by MySQL founder Michael Widenius when Oracle obtained MySQL in 2010 and stays true to its open source, community driven development.  MariaDB is a direct alternative to MySQL and is a fork of MySQL.  The functionality is similar enough that MariaDB functions as a database as a drop-in replacement for MySQL.  The database structure and indexes are the same as MySQL.  MariaDB is used by companies such as Google, Wikipedia, RedHat, etc.  The main advantages of MariaDB despite being a fork is its more efficient performance and newer features.
+MariaDB was created by MySQL founder Michael Widenius when Oracle obtained MySQL in 2010 and stays true to its open source, community driven development.  MariaDB is a direct alternative to MySQL and is a fork of MySQL.\cite{mariadb}  The functionality is similar enough that MariaDB functions as a database as a drop-in replacement for MySQL.  The database structure and indexes are the same as MySQL.  MariaDB is used by companies such as Google, Wikipedia, RedHat, etc.  The main advantages of MariaDB despite being a fork is its more efficient performance and newer features.
 
 \begin{figure}[h]
 	\centering
@@ -1166,7 +1166,7 @@ MariaDB was created by MySQL founder Michael Widenius when Oracle obtained MySQL
 
 \subsubsection{PostgreSQL}
 
-PostgreSQL is another open source SQL database but it is object-relational.  Object-relational means that there is support for user-defined objects and their behaviors e.g. data types, functions, operators, domains, and indexes.  Alongside these objects, PostgreSQL has a wide support for data types and structures.  PostgreSQL can store much more data in their rows without negatively impacted performance.  MySQL and MariaDB are known for running into file size limitations and PostgreSQL will avoid those problems.  The highly customizable databases and wide support for programming languages are some key features of PostgreSQL.  PostgreSQL is widely used and well-known for data stability and security.  PostgreSQL combines the benefits of SQL with the modern features of noSQL and looks to be very promising.
+PostgreSQL was developed by Andrew Yu and Jolly Chen in 1994.\cite{postgres} PostgreSQL is an open source SQL database but it is object-relational.  Object-relational means that there is support for user-defined objects and their behaviors e.g. data types, functions, operators, domains, and indexes.  Alongside these objects, PostgreSQL has a wide support for data types and structures.  PostgreSQL can store much more data in their rows without negatively impacted performance.  MySQL and MariaDB are known for running into file size limitations and PostgreSQL will avoid those problems.  The highly customizable databases and wide support for programming languages are some key features of PostgreSQL.  PostgreSQL is widely used and well-known for data stability and security.  PostgreSQL combines the benefits of SQL with the modern features of noSQL and looks to be very promising.
 
 \begin{figure}[h]
 	\centering
@@ -1175,16 +1175,16 @@ PostgreSQL is another open source SQL database but it is object-relational.  Obj
 
 \subsubsection{MongoDB}
 
-MongoDB is the database component of the MEAN (mongoDB, Express, Angular, Node.js) and is a NoSQL database.  MongoDB is based in JavaScript alongside the entire MEAN web-based application stack.  MongoDB was developed in 2007 and introduced to the market in 2009 as an open source database that was maintained and supported by MongoDB Inc.  MongoDB utilizes JSON based document oriented queries that function much more quickly than SQL queries.  NoSQL databases are a more modern approach to databases and mongoDB is in the forefront.  In terms of modernity and future web stack development, mongoDB seems like the most flexible choice for databases.
+MongoDB is the database component of the MEAN (mongoDB, Express, Angular, Node.js) and is a NoSQL database.  MongoDB is based in JavaScript alongside the entire MEAN web-based application stack.  MongoDB was developed in 2007 and introduced to the market in 2009 as an open source database that was maintained and supported by MongoDB Inc.\cite{mongodb}  MongoDB utilizes JSON based document oriented queries that function much more quickly than SQL queries.  NoSQL databases are a more modern approach to databases and mongoDB is in the forefront.  In terms of modernity and future web stack development, mongoDB seems like the most flexible choice for databases.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.251\linewidth]{dynamodb}
 \end{figure}
 
-\subsection{DynamoDB}
+\subsubsection{DynamoDB}
 
-DynamoDB is a noSQL database developed by Amazon.  DynamoDB makes use of tables, items, and attributes and seems to have a much more simplified query calls for a noSQL database as compared to mongoDB.  In line with the Amazon brand, the database is designed with scalability in mind and offers a wide variety of features if chosen alongside with Amazon Web Services.  DynamoDB seems like an interesting option for a noSQL database.
+DynamoDB is a noSQL database developed by Amazon.  DynamoDB makes use of tables, items, and attributes and seems to have a much more simplified query calls for a noSQL database as compared to mongoDB.  In line with the Amazon brand, the database is designed with scalability in mind and offers a wide variety of features if chosen alongside with Amazon Web Services.\cite{dynamodb}  DynamoDB seems like an interesting option for a noSQL database.
 
 \section{Backend Research}
 
@@ -1197,7 +1197,7 @@ The main component for communication between the front-end user experience and t
 
 \subsection{PHP}
 
-PHP began development in 1994 by Rasmus Lerdorf.   PHP is a general-purpose programming language designed for web development and can be easily embedded into HTML.  The PHP code is executed server side which will send the corresponding html to the client and these actions are fully synchronous.  Issues related to synchronous behaviors offer some drawbacks as web application development begins to evolve towards asynchronous behaviors.  From personal experience it is somewhat intuitive and relatively streamlined and template based.  Within the PHP code, a connection to the database will be made, a SQL query will be processed from the client and the corresponding data will be sent or retrieved from the SQL database.  The connection will then be closed until the next client interaction happens.
+PHP began development in 1994 by Rasmus Lerdorf.\cite{php}  PHP is a general-purpose programming language designed for web development and can be easily embedded into HTML.  The PHP code is executed server side which will send the corresponding html to the client and these actions are fully synchronous.  Issues related to synchronous behaviors offer some drawbacks as web application development begins to evolve towards asynchronous behaviors.  From personal experience it is somewhat intuitive and relatively streamlined and template based.  Within the PHP code, a connection to the database will be made, a SQL query will be processed from the client and the corresponding data will be sent or retrieved from the SQL database.  The connection will then be closed until the next client interaction happens.
 
 \begin{figure}[h]
 	\centering
@@ -1206,7 +1206,7 @@ PHP began development in 1994 by Rasmus Lerdorf.   PHP is a general-purpose prog
 
 \subsection{Node.js}
 
-Node.js is an open source server environment that executes JavaScript on the server and works in conjunction with express.  Node.js differs from PHP as it makes use of asynchronous programming.  Asynchronous programming makes Node.js much more efficient as it is able to send requests and immediately prepare other requests rather than waiting after every single request.  As soon as a request is ready, the contents will be sent to the client rather than waiting for the request to be fulfilled.  The MEAN stack of Node.js will make use of JavaScript across the stack which will provide easier communication across the levels of the stack between developers.  This aspect will be particularly useful in the scope of this project as there are very few of us and communication and ease of troubleshooting is extremely important.
+Node.js is an open source server environment that executes JavaScript on the server and works in conjunction with express.  Node.js differs from PHP as it makes use of asynchronous programming.  Asynchronous programming makes Node.js much more efficient as it is able to send requests and immediately prepare other requests rather than waiting after every single request.\cite{node}  As soon as a request is ready, the contents will be sent to the client rather than waiting for the request to be fulfilled.  The MEAN stack of Node.js will make use of JavaScript across the stack which will provide easier communication across the levels of the stack between developers.  This aspect will be particularly useful in the scope of this project as there are very few of us and communication and ease of troubleshooting is extremely important.
 
 Node.js and the MEAN stack in general is not as mature as technologies as PHP and the LAMP stack but their more modern approach to web development is very promising and the growth in popularity in the last decade is exciting.  Asynchronous calls allow for better communication on both ends with real-time connections and better data exchange.
 
@@ -1217,7 +1217,7 @@ Node.js and the MEAN stack in general is not as mature as technologies as PHP an
 
 \subsection{Express}
 
-Express is a lightweight web application framework for Node.  Express is known for simplifying routing, which is how a web application’s endpoints respond to client requests.  This greatly simplifies the web application development process and eases data communication between the backend and the frontend.  Not only is the connection eased but being able to make requests and calls are simplified also because of the framework that express offers.  Node.js and Express offer a straightforward platform to developing a web application backend.
+Express is a lightweight web application framework for Node.  Express is known for simplifying routing, which is how a web application’s endpoints respond to client requests.\cite{express}  This greatly simplifies the web application development process and eases data communication between the backend and the frontend.  Not only is the connection eased but being able to make requests and calls are simplified also because of the framework that express offers.  Node.js and Express offer a straightforward platform to developing a web application backend.
 
 \begin{figure}[h]
 	\centering
@@ -1226,7 +1226,7 @@ Express is a lightweight web application framework for Node.  Express is known f
 
 \subsection{ASP.NET}
 
-ASP.NET is a combination of Active Server Pages (ASP) and .Net Framework.  ASP is Microsoft’s scripting engine for dynamic web pages and .NET is the software that enables use of ASP.  ASP.NET is part of the WISA stack.  The closed source aspect of being a Microsoft product can be a drawback.  WISA stacks and the prices associated seem to be mainly targeting enterprise level websites however when using WISA stacks, all levels of the stack can be handled by Microsoft support which would smooth any issues with the web application.  The Visual Studio IDE also assist in the web development step with the various features available with the C\# language.
+ASP.NET is a combination of Active Server Pages (ASP) and .Net Framework.  ASP is Microsoft’s scripting engine for dynamic web pages and .NET is the software that enables use of ASP.\cite{dotnet}  ASP.NET is part of the WISA stack.  The closed source aspect of being a Microsoft product can be a drawback.  WISA stacks and the prices associated seem to be mainly targeting enterprise level websites however when using WISA stacks, all levels of the stack can be handled by Microsoft support which would smooth any issues with the web application.  The Visual Studio IDE also assist in the web development step with the various features available with the C\# language.
 
 \begin{figure}[h]
 	\centering
@@ -1235,7 +1235,7 @@ ASP.NET is a combination of Active Server Pages (ASP) and .Net Framework.  ASP i
 
 \subsection{Ruby on Rails}
 
-Ruby on Rails is a server-side web application framework written in Ruby under MIT license.  Rails provides a model-view-controller (MVC) framework and structures for a database, web service, and web pages.  The frameworks provide a platform and templates for developing websites.  The process with rails seems to simplify the coding process similar to design patterns by providing efficient and clean solutions to common issues or specifications in web application development.  Ruby on Rails sounds like a user-friendly option that could be worth exploring although learning ruby alongside the framework seems like a unique experience.
+Ruby on Rails is a server-side web application framework written in Ruby under MIT license.\cite{rubyonrails}  Rails provides a model-view-controller (MVC) framework and structures for a database, web service, and web pages.  The frameworks provide a platform and templates for developing websites.  The process with rails seems to simplify the coding process similar to design patterns by providing efficient and clean solutions to common issues or specifications in web application development.  Ruby on Rails sounds like a user-friendly option that could be worth exploring although learning ruby alongside the framework seems like a unique experience.
 
 \section{Web Hosting}
 
@@ -1255,7 +1255,7 @@ The senior design lab also offers server space and hosting.  The main issue is r
 
 \subsection{Amazon Web Services (AWS)}
 
-Amazon Web Services is an extremely flexible platform with a wide variety of options for all web hosting needs.  The idea of scalability and flexibility are key aspects that AWS utilizes to meet the needs of their customers as their platforms and storage needs grow.  AWS also offers the largest amount of credits (\$185.00) specifically for student usage through the AWS Educate program.  The AWS Educate program is designed to be an academic gateway for future web services professionals.  Their goal is to raise awareness of cloud services and their capabilities.
+Amazon Web Services is an extremely flexible platform with a wide variety of options for all web hosting needs.  The idea of scalability and flexibility are key aspects that AWS utilizes to meet the needs of their customers as their platforms and storage needs grow.  AWS also offers the largest amount of credits (\$150.00) specifically for student usage through the AWS Educate program.\cite{aws}  The AWS Educate program is designed to be an academic gateway for future web services professionals.  Their goal is to raise awareness of cloud services and their capabilities.
 Another draw to AWS on top of their flexibility and scalability of creating your database and website is their extremely useful and resourceful documentation.  All components of a website are offered by Amazon Web Services from the domain name to databases to the website itself and everything is documented.  A variety of guides to setting up a database of your chosen language whether it be a relational database such as MySQL, PostgreSQL, MariaDB, and more or it is a non-relational database such as MongoDB or Amazon DynamoDB.  The guides are created extremely thoroughly with common troubleshooting issues within their instructions to make the process as easy as possible.
 The following steps of connecting your database with your chosen web platform and creating your website continues the trend of well-documented instructions.  Creating a Node.js platform and connecting the PostgreSQL was a streamlined processed thanks to the documentation and the wide variety of tools offered by AWS.  In this case their elastic beanstalk feature which is their web platform tool allows for easy connection to the database and the great scalability features that Amazon Web Services offers.
 
@@ -1278,7 +1278,7 @@ Below is an entity relationship diagram for our database which shows the associa
 
 \subsection{PostgreSQL Setup}
 
-Creating a database on Amazon Web Services proved to be extremely intuitive and simple with their extensive documentation.  Amazon offers relational database creation under a wide variety of languages and PostgreSQL is one of them.  Upon creating the database on AWS, the following step was to create the tables for the database.  This step involved the use of pgAdmin.  pgAdmin is an open-source administration and development platform for PostgreSQL.  The creation of the tables involved the use of SQL to create tables with the desired fields and their data types.  Below is an example of a table created for the database on pgAdmin.  The choice of SQL made creating the tables extremely simple with the clear syntax of the data structure and data types.  Queries are also simplified through their use of intuitive key words to form a desired search based on conditions to capture the desired subset of information.
+Creating a database on Amazon Web Services proved to be extremely intuitive and simple with their extensive documentation.  Amazon offers relational database creation under a wide variety of languages and PostgreSQL is one of them.  Upon creating the database on AWS, the following step was to create the tables for the database.  This step involved the use of pgAdmin.  pgAdmin is an open-source administration and development platform for PostgreSQL.\cite{pgadmin}  The creation of the tables involved the use of SQL to create tables with the desired fields and their data types.  Below is an example of a table created for the database on pgAdmin.  The choice of SQL made creating the tables extremely simple with the clear syntax of the data structure and data types.  Queries are also simplified through their use of intuitive key words to form a desired search based on conditions to capture the desired subset of information.
 
 \subsection{Users Table}
 
@@ -1318,7 +1318,7 @@ The metadata table will associate metadata with their respective image.  The rel
 
 \subsection{Astronomical Visualization Metadata}
 
-For every image taken at the Robinson Observatory, the telescope software is able to provide a standardized set of information about the image which is stored in associated metadata.  This standard metadata is known as the astronomical visualization metadata (AVM) standard.  The standard is recognized by the international virtual observatory alliance (IVOA) which is a worldwide scientific organization that facilitates international collaboration for access to data gathered by observatories around the world.  With this standard in place, accessing and associating metadata for our website will be much simpler.  The required fields for the database will be well defined in accordance to the AVM standard.
+For every image taken at the Robinson Observatory, the telescope software is able to provide a standardized set of information about the image which is stored in associated metadata.  This standard metadata is known as the astronomical visualization metadata (AVM) standard.  The standard is recognized by the international virtual observatory alliance (IVOA) which is a worldwide scientific organization that facilitates international collaboration for access to data gathered by observatories around the world.\cite{avmstandard}  With this standard in place, accessing and associating metadata for our website will be much simpler.  The required fields for the database will be well defined in accordance to the AVM standard.
 The AVM standard can be broken down into five separate categories: creator, content, observation, publisher, and file.  The creator category contains information about the person who created the image and how to contact them.  The content section is the title of the astronomical object with short description and some general information such as the type of the object.  The observation section holds the spatial information and coordinates, the section of the light spectrum used, and additional information for its location in space.  The publisher information is the institution associated with the observatory and how to contact.  The file metadata holds information about the image such as file type and size.
 The image below contains the AVM standard with format type and examples.
 
