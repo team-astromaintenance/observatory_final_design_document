@@ -517,19 +517,19 @@ Finally we decided to use an open source program instead of creating our own so 
 
 We want to still modify the telescope control plugin provided because we believe there is a better way of handling control we need than Stellarium does. The control plugin lacks instructions and can be hard to find unless. In the source code, you can find simple instructions for use commented within the code. We also want to add more features to the telescope control plugin to be discussed in further detail in the accompanying sections.
 
-\subsection{Modifying Stellarium}
+\subsubsection{Modifying Stellarium}
 
 To convert the output strings sent by Stellarium for the telescope control, modifications will be made to the telescope control plugin. This plugin can be easily found within the directory for plugins in the Stellarium source code. All code pertaining to telescope control is written in C++, which can be edited with nearly any text editor. Our edits will be done within an integrated development environment (IDE) though. An IDE like Visual Studio Code allows us to view errors within our modifications before compiling the software as a whole.
 
 We plan to only modify code pertaining to the LX200 coordinate output along with the windows created for telescope control. We will only modify LX200 outputs as this is the protocol we will use. There is no need to alter other protocols we are not familiar with and possibly break those protocols within Stellarium. Next, we will modify the control windows to add features like saving coordinates and viewing the live stream of the GoPro on the telescope. We also want to add more text within the windows to help provide a greater walkthrough of the telescope control process. This would allow a user to simply follow the onscreen instructions when setting up and using the telescope control instead of reading through documentation as many people don’t read the documentation anyway. A user friendly approach instead of simply creating the telescope modifications needed ensures for a pleasant using experience. An experience that could make the difference between wanting to use our software or looking for a different option.
 
-\subsection{Compiling Stellarium}
+\subsubsection{Compiling Stellarium}
 
 Since Stellarium is open source, the source code is obtainable online but the program can be installed straight from www.stellarium.org. In our case, we want the source code version so we can manipulate some of the outputs of Stellarium. In order to compile the code after modifications, QT5, CMake, and Visual Studios 2017 are all need to be downloaded. As a side note, Visual Studios 2017 is a minimum requirement. You can use a more recent version but this process is guaranteed to work with that version. All these downloads are available online as open source options. The community edition of Visual Studios works for this process. The source code can be obtained through git requests in a terminal, downloaded online, or through GitHub Desktop. If using Github Desktop, after cloning the repository, you should not be sending your modification back to the Stellarium repository.
 
 To compile the code, Qt5 is first used to configure debug and release builds. When using Qt5, it is important to match the version of Visual Studios to the appropriate Qt5 version as the IDE within Qt5 depends on Visual Studios. Next, CMake is used to configure some user options onto the build. It is recommended to use version 3.4.1 or better. Finally, Visual Studios is used to change the build mode to release and build the program. This process can be started in one of two ways: by executing this file, C:\\Devel\\stellarium\\builds\\msvc2017\\Stellarium.sln, or by clicking the open project button from the CMake GUI. After this process is completed, the program has been complied and is thus ready to be used.
 
-\subsection{Using Stellarium}
+\subsubsection{Using Stellarium}
 
 First Time Use Setup - The telescope needs to be configured within Stellarium.
 \begin{enumerate}
@@ -570,7 +570,7 @@ Telescope Control
 
 Finally, it is important to always ensure Stellarium is in equatorial mode and not azimuth mode. While this toggle does not change the output strings to the telescope, it does help the user view the correct orientation of the sky related to the equatorial mount being used. Objects in the sky are displayed in different locations when switching between modes, which can lead to confusion. This confusion can lead to the thought the telescope may not be pointed in the correct location. This option can be toggled between using CRTL + M or by selecting the option from the menu on the bottom. The toggle can be seen on the bottom menu in the fifth box from the left in the first slot. The button is a telescope with a dotted ‘x’ in the back. It is in equatorial mount mode when the toggle is lit up. You can also have the program display a message indicating the mode everytime you switch. Under default settings this option is not chosen, so the user needs to open the configuration settings window and select tools from the available tabs. In the tools window about halfway down the options, there is a checkbox named “Indication for mount mode” located to the left of “Dithering” option.
 
-\subsection{Celestial Coordinates}
+\subsubsection{Celestial Coordinates}
 
 In Stellarium, the current coordinates provided for right ascension(RA) and declination(DEC) are sent as celestial coordinates, also known as equatorial coordinates. Cartesian coordinates are the standard for most locations like determining the location of the Robinson observatory or Paris, France. These locations are constructed through latitude and longitude and do not rely on time. These coordinates can be easily manipulated with sine, cosine, and tangent to find other pieces of the location. The same is not present with celestial coordinates.
 
