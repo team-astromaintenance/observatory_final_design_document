@@ -267,7 +267,7 @@ Our software will be a C++ open-sourced console application, which we will be de
 
 \subsubsection{Singular Point Movement vs Tracking Movement}
 
-The main use for our model telescope will be to demonstrate the movement functionality of both our interdisciplinary teams hardware and our computer science teams software. With that being understood, the most important feature of our software is moving the telescope to focus on a single point in the sky in order to demonstrate proper movement. It will very much resemble a 'point, click, and go' method of movement. This will be accomplished by first using the aforementioned open-sourced software Stellarium to pick a point in the sky in order to pull the equatorial coordinates of that location. Once our software has those coordinates, the user will be able to decide if they want to move the telescope to this position without tracking, or move to this position and follow that point in the sky as the Earth rotates by choosing the tracking option.
+The main use for our model telescope will be to demonstrate the movement functionality of both our interdisciplinary teams hardware and our computer science teams software. With that being understood, the most important feature of our software is moving the telescope to focus on a single point in the sky in order to demonstrate proper movement. It will very much resemble a 'point, click, and go' method of movement. This will be accomplished by first using the aforementioned open-sourced software Stellarium to pick a point in the sky in order to pull the equatorial coordinates of that location. Once our software has those coordinates and sent the slew command for that position, the telescope will automatically engage tracking mode. Tracking mode is handled by the Arduino.
 
 The user interface for this functionality will be very simple and to the point (Figure \ref{fig:MainScreen}). Stellarium gives a beautiful virtual planetarium of the sky from wherever you are by taking your devices current location, or a location that the user specifies. Our software will plug into Stellarium via a toggle on the bottom taskbar of the program. When toggled on, a console application will appear showing the main screen of our software. As shown below, this will give the current equatorial coordinates of what the user has picked on the virtual planetarium. It will show empty coordinates if the user has yet to pick anything. The chosen point in the sky is denoted by a bullseye icon on the planetarium.
 
@@ -289,7 +289,7 @@ The user will be able to move the telescope by clicking the 'Slew telescope' but
 	\label{fig:MainScreenwithCameraView}
 \end{figure}
 
-The camera viewing application will be external of the control software, and will likely be the native camera software that comes with Windows. There will be warnings for when a camera is not detected when the user tries to use the camera options (Figure \ref{fig:NoCameraDetected}), or if there is no telescope detected when the user tries to move the telescope (Figure \ref{fig:MainScreenNoTelescope}).
+The camera viewing application has been added on top of Stellarium. This application is a widget in Stellarium and uses native camera options for control. There will be warnings for when a camera is not detected when the user tries to use the camera options (Figure \ref{fig:NoCameraDetected}), or if there is no telescope detected when the user tries to move the telescope (Figure \ref{fig:MainScreenNoTelescope}).
 
 \begin{figure}[h]
 	\centering
@@ -376,7 +376,7 @@ The user can choose to load a given coordinate by clicking the select button on 
 
 \subsubsection{Setting the Settings}
 
-The final main piece to our software is the settings page (Figure \ref{fig:Settings}). This page is the customizable brains of the control software. On this page is where the user will choose from the list of detected cameras which one they would like to use as the main camera, as well as what type of format that the coordinates will have. The coordinates can have an hours-minutes-seconds, degrees-minutes-seconds, and decimal format.
+The final main piece to our software is adjusting settings (Figure \ref{fig:Settings}). These settings deal primarily with the camera functionality. We allow the user to choose where photos will be saved and if they want to connect to the archive website for upload functionality.
 
 \begin{figure}[h]
 	\centering
@@ -530,6 +530,9 @@ Since Stellarium is open source, the source code is obtainable online but the pr
 
 To compile the code, Qt5 is first used to configure debug and release builds. When using Qt5, it is important to match the version of Visual Studios to the appropriate Qt5 version as the IDE within Qt5 depends on Visual Studios. Next, CMake is used to configure some user options onto the build. It is recommended to use version 3.4.1 or better. Finally, Visual Studios is used to change the build mode to release and build the program. This process can be started in one of two ways: by executing this file, C:\textbackslash{}Devel\textbackslash{}stellarium\textbackslash{}builds\textbackslash{}msvc2017\textbackslash{}Stellarium.sln, or by clicking the open project button from the CMake GUI. After this process is completed, the program has been complied and is thus ready to be used.
 
+Qt Creator can handle the compilation of debug versions by itself. The application allows for the use of quick builds without creating an application version of Stellarium. When you build a version of Stellarium in Qt Creator, it launches the application in Qt for use but also saves an executable to your drive. This executable can be used after to run the application again. The executable is similiar to an application installed on a computer.
+
+
 \subsubsection{Using Stellarium}
 
 First Time Use Setup - The telescope needs to be configured within Stellarium.
@@ -599,6 +602,9 @@ First off, it will be important to calibrate the telescope so that the home posi
 To provide the slew instructions for an object selected, we need to receive the current degree placements of both motors from the Arduino board. These readings sent from the Arduino board will tell the change from the standard home position of the telescope instead of the telescope’s actual location. So first, we will need to take the readings from home position and compare them to the standard home position. This will give us the current viewing location of the telescope. Then from that position, we can take the difference between the telescope position and the current object to be tracked position to provide the correct instructions.
 
 Now we can determine the exact movements the telescope needs to reach the coordinates. This requires us to convert the Stellarium strings for RA and DEC to degrees. The math is provided in the image below. Declination is pretty straight forward in conversion to degrees but right ascension requires the conversion to degrees than the multiplication by 15. This accounts for the fact the Earth moves about 360 degrees in 24 hours resulting in 15 degrees an hour. Furthermore for both conversions, minutes for RA and arcminutes for DEC are divided by 60 to account for 60 minutes in an hour. Next seconds  for RA and arcseconds for DEC are divided by 3600 to account for 60 seconds of 60 minutes in an hour. One last step for declination is applying the sign of the original coordinates given by Stellarium to the newly converted degrees. This only happens for declination because right ascension is always positive. Right ascension only ever calculates eastward. Declination can calculate both upwards and downwards relative to the celestial sphere.
+
+We also use a general formula for radians to degrees. When referencing a point in Stellarium, radians can be accessed for right ascension and declination. This allows for simple translation as it is radians times 180 divided by pie to equal degrees.
+
 
 \begin{figure}[h]
   \centering
